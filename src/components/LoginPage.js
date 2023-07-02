@@ -1,12 +1,13 @@
 import AboutField from './LoginPageComponents/AboutField'
 import Login from './LoginPageComponents/Login'
 
-const LoginPage = ({ setIsAutheticated }) => {
+const LoginPage = ({ setIsAutheticated, setUsername }) => {
     return(
         <div>
             <AboutField />
             <Login 
                 setIsAutheticated={setIsAutheticated}
+                setUsername={setUsername}
             />
         </div>
     )

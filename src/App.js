@@ -27,7 +27,7 @@ function App() {
   const [isAuthenticated, setIsAutheticated] = useState(false)
   const [listOfLessons, setListOfLessons] = useState([])
   const [lesson, setLesson] = useState({})
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState("")
   
   // get database
   const lessonsCollectionRef = collection(db, "lessons")
