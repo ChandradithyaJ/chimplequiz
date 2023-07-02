@@ -9,12 +9,10 @@ const Login = ({ setIsAutheticated, setUsername }) => {
         try{
             await signInWithPopup(auth, googleProvider)
             console.log(auth.currentUser.displayName)
-            setUsername(auth.currentUser.displayName)
             setIsAutheticated(true)
             navigate('/home')
         } catch (err) {
-            console.log('Not working')
-            console.log(err.message)
+            console.log(err)
         }
     }
 
