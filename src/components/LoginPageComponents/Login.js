@@ -8,7 +8,7 @@ const Login = ({ setIsAutheticated, setUsername }) => {
     const signIn = async () => {
         try{
             await signInWithPopup(auth, googleProvider)
-            console.log(auth.currentUser.displayName)
+            setUsername(auth.currentUser.displayName)
             setIsAutheticated(true)
             navigate('/home')
         } catch (err) {
