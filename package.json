@@ -1,7 +1,7 @@
 {
   "name": "chimplequiz",
   "version": "0.1.0",
-  "homepage": "https://ChandradithyaJ.github.io/chimplequiz",
+  "homepage": "https://chandradithyaj.github.io/chimplequiz",
   "private": true,
   "dependencies": {
     "firebase": "^9.23.0",
