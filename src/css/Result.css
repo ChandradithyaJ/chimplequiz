@@ -1,0 +1,28 @@
+.result-container {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+}
+
+.result-container p{
+    font-size: 25px;
+}
+
+.return-home {
+    background-image: linear-gradient(to bottom, #3D2657 0%, #B159D3 100%);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    margin-top: 3vh;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.return-home:hover {
+    color: white;
+    box-shadow: 0 5px 15px #afe0f5;
+}

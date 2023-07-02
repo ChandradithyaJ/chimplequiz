@@ -1,0 +1,47 @@
+.home-page {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+    font-size: 25px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2vh;
+}
+
+.home-page button {
+    margin-right: 2vw;;
+    height: 60px;
+    width: 100px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: rgb(156, 237, 210);
+    font-size: 15px;
+}
+
+.home-page button:hover {
+    height: 75px;
+    width: 150px;
+}
+
+.home-page button:nth-child(1){
+    background-color: lightgreen;
+}
+
+.home-page button:nth-child(2) {
+    background-color: lightyellow;
+}
+
+.home-page button:nth-child(3) {
+    background-color: plum;
+}
+
+.home-page button:nth-child(4) {
+    background-color: khaki;
+}

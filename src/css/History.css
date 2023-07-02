@@ -1,0 +1,7 @@
+.history-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    padding-top: 6vh;
+}

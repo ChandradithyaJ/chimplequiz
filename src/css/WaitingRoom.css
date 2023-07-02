@@ -1,0 +1,35 @@
+.waiting-room-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+}
+
+.waiting-room {
+    color: rgb(91, 84, 126);
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #E1D9FF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65vw;
+}
+
+.start-quiz {
+    margin-right: 2vw;
+    height: 55px;
+    width: 130px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: rgb(15, 200, 138);
+    margin-bottom: 3vh;
+    transition: 0.5s;
+}
+
+.start-quiz:hover {
+    color: black;
+    box-shadow: 0 5px 15px black;
+}

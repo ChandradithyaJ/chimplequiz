@@ -1,0 +1,31 @@
+/* Header */
+
+.header {
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    position: relative;
+    top: 0;
+    background-color: rgb(38, 38, 38);
+}
+
+.chimple-logo {
+    mix-blend-mode: normal;
+    height: 15vh;
+}
+
+.title {
+    color: #F48F8B;
+    padding-left: 2vw;
+}
+
+.app-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(38, 38, 38);
+    color: #79dae5;
+}
