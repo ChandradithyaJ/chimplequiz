@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Question = ({ lesson, score, setScore }) => {
+const Question = ({ lesson, score, setScore, gameId }) => {
     const [questionNum, setQuestionNum] = useState(1)
     const [selectedOption, setSelectedOption] = useState(null)
     const [submitted, setSubmitted] = useState(false)
@@ -48,7 +48,7 @@ const Question = ({ lesson, score, setScore }) => {
             setSelectedOption(null)
             setSubmitted(false)
             setIsCorrect(false)
-            navigate(`/lessons/${lesson.routeName}-quiz-results`)
+            navigate(`/lessons/${lesson.routeName}-quiz-results-${gameId}`)
         }
     }
 

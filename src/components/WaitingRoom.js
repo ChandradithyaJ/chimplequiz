@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom"
 
-const WaitingRoom = ({ lesson, setScore }) => {
+const WaitingRoom = ({ lesson, setScore, gameId }) => {
     const navigate = useNavigate()
 
     const startQuiz = () => {
         setScore(0)
-        navigate(`/lessons/${lesson.routeName}-quiz`)
+        navigate(`/lessons/${lesson.routeName}-quiz-${gameId}`)
     }
 
     return(
@@ -21,6 +21,9 @@ const WaitingRoom = ({ lesson, setScore }) => {
                     </li>
                     <li>
                         There is no time limit.
+                    </li>
+                    <li>
+                        Share this link with others so they can join! Just copy the url in the search bar of the browser.
                     </li>
                 </ul>
                 <button 

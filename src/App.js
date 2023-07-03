@@ -118,6 +118,7 @@ function App() {
               lesson={lesson}
               score={score}
               setScore={setScore}
+              gameId={gameId}
             />}
           />
           <Route
