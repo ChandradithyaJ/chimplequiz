@@ -48,7 +48,7 @@ const Question = ({ lesson, score, setScore, gameId }) => {
             setSelectedOption(null)
             setSubmitted(false)
             setIsCorrect(false)
-            navigate(`/lessons/${lesson.routeName}-quiz-results-${gameId}`)
+            navigate(`/lessons/${lesson.routeName}-quiz-results`)
         }
     }
 

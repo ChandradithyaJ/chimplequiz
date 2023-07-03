@@ -3,7 +3,6 @@ import { MdOutlineQuiz } from 'react-icons/md'
 
 const Lesson = ({ lesson, setLesson, setScore, gameId }) => {
     const goToWaitingRoom = () => {
-        setScore(0)
         setLesson(lesson)
     }
 

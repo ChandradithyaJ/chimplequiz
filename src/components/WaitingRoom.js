@@ -5,7 +5,7 @@ const WaitingRoom = ({ lesson, setScore, gameId }) => {
 
     const startQuiz = () => {
         setScore(0)
-        navigate(`/lessons/${lesson.routeName}-quiz-${gameId}`)
+        navigate(`/lessons/${lesson.routeName}-quiz`)
     }
 
     return(
@@ -23,7 +23,7 @@ const WaitingRoom = ({ lesson, setScore, gameId }) => {
                         There is no time limit.
                     </li>
                     <li>
-                        Share this link with others so they can join! Just copy the url in the search bar of the browser.
+                        Share this link with others so they can join!
                     </li>
                 </ul>
                 <button 

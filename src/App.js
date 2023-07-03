@@ -29,6 +29,7 @@ function App() {
   const [lesson, setLesson] = useState({})
   const [username, setUsername] = useState("")
   const [gameId, setGameId] = useState('')
+  const [gameURL, setGameURL] = useState('')
   
   // get database
   const lessonsCollectionRef = collection(db, "lessons")
@@ -99,13 +100,17 @@ function App() {
             exact path='/lessons'
             element={<LessonsList
               listOfLessons={listOfLessons}
+              lesson={lesson}
               setLesson={setLesson}
               setScore={setScore}
               gameId={gameId}
+              setGameId={setGameId}
+              gameURL={gameURL}
+              setGameURL={setGameURL}
             />}
           />
           <Route
-            exact path={`/lessons/${lesson.routeName}-quiz-waiting-room-${gameId}`}
+            exact path={`/lessons/${lesson.routeName}-quiz-waiting-room`}
             element={<WaitingRoom
               lesson={lesson}
               setScore={setScore}
@@ -113,7 +118,7 @@ function App() {
             />}
           />
           <Route
-            exact path={`/lessons/${lesson.routeName}-quiz-${gameId}`}
+            exact path={`/lessons/${lesson.routeName}-quiz`}
             element={<Question
               lesson={lesson}
               score={score}
@@ -122,7 +127,7 @@ function App() {
             />}
           />
           <Route
-            exact path={`/lessons/${lesson.routeName}-quiz-results-${gameId}`}
+            exact path={`/lessons/${lesson.routeName}-quiz-results`}
             element={<Result
               score={score}
               setScore={setScore}
