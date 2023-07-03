@@ -9,7 +9,7 @@ const Lesson = ({ lesson, setLesson, setScore, gameId }) => {
     return(
         <article className="lesson-container">
             <Link 
-                to={`/lessons/${lesson.routeName}-quiz-waiting-room-${gameId}`}
+                to={`/lessons/${lesson.routeName}-quiz-waiting-room`}
                 className="lesson"
                 onClick={goToWaitingRoom}
             >

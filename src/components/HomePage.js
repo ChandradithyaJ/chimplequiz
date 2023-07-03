@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { auth } from "../config/firebase"
 import { signOut } from "firebase/auth"
 
-const HomePage = ({ setIsAutheticated, username, setUsername, setGameId }) => {
+const HomePage = ({ username, setUsername }) => {
     const navigate = useNavigate()
 
     const goToLessons = () => {        
@@ -20,7 +20,6 @@ const HomePage = ({ setIsAutheticated, username, setUsername, setGameId }) => {
     const logOut = async () => {
         try{
             await signOut(auth)
-            setIsAutheticated(false)
             setUsername('')
             navigate('/login')
         } catch (err) {

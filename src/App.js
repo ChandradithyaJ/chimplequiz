@@ -19,12 +19,11 @@ import './css/Question.css'
 import './css/Result.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { db } from './config/firebase'
+import { db, auth } from './config/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
 function App() {
   const [score, setScore] = useState(0)
-  const [isAuthenticated, setIsAutheticated] = useState(false)
   const [listOfLessons, setListOfLessons] = useState([])
   const [lesson, setLesson] = useState({})
   const [username, setUsername] = useState("")
@@ -59,10 +58,6 @@ function App() {
     getLessons()
   }, [lessonsCollectionRef, listOfLessons])
 
-  useEffect(() => {
-    /* refresh application when logged in or logged out */
-  }, [isAuthenticated])
-
   return (
     <div className="App">
       <Header />
@@ -70,12 +65,11 @@ function App() {
 
       {/* allow access only after login */}
 
-      {!isAuthenticated &&
+      {!auth.currentUser &&
         <Routes>
           <Route
             exact path='/login'
             element={<LoginPage 
-              setIsAutheticated={setIsAutheticated}
               setUsername={setUsername}
             />}
           />
@@ -85,15 +79,13 @@ function App() {
           />
         </Routes>
       }
-      {isAuthenticated && 
+      {auth.currentUser && 
         <Routes>
           <Route
             exact path='/home'
-            element={<HomePage 
-              setIsAutheticated={setIsAutheticated}
+            element={<HomePage
               username={username}
               setUsername={setUsername}
-              setGameId={setGameId}
             />}
           />
           <Route

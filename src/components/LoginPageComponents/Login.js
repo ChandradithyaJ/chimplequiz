@@ -2,14 +2,13 @@ import { useNavigate } from "react-router-dom"
 import { auth, googleProvider } from '../../config/firebase'
 import { signInWithPopup } from "firebase/auth"
 
-const Login = ({ setIsAutheticated, setUsername }) => {
+const Login = ({ setUsername }) => {
     const navigate = useNavigate()
 
     const signIn = async () => {
         try{
             await signInWithPopup(auth, googleProvider)
             setUsername(auth.currentUser.displayName)
-            setIsAutheticated(true)
             navigate('/home')
         } catch (err) {
             console.log(err)
