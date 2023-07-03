@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom"
 import { auth } from "../config/firebase"
 import { signOut } from "firebase/auth"
+import { v4 } from "uuid"
 
-const HomePage = ({ setIsAutheticated, username, setUsername }) => {
+const HomePage = ({ setIsAutheticated, username, setUsername, setGameId }) => {
     const navigate = useNavigate()
 
     const goToLessons = () => {
+        // generate a unique game id
+        const uniqueGameId = v4()
+        setGameId(uniqueGameId)
+        
         navigate('/lessons')
     }
 

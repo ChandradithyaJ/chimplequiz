@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { MdOutlineQuiz } from 'react-icons/md'
 
-const Lesson = ({ lesson, setLesson, setScore }) => {
+const Lesson = ({ lesson, setLesson, setScore, gameId }) => {
     const goToWaitingRoom = () => {
         setScore(0)
         setLesson(lesson)
@@ -10,7 +10,7 @@ const Lesson = ({ lesson, setLesson, setScore }) => {
     return(
         <article className="lesson-container">
             <Link 
-                to={`/lessons/${lesson.routeName}-quiz-waiting-room`}
+                to={`/lessons/${lesson.routeName}-quiz-waiting-room-${gameId}`}
                 className="lesson"
                 onClick={goToWaitingRoom}
             >

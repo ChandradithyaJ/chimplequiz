@@ -1,6 +1,6 @@
 import Lesson from "./Lesson"
 
-const List = ({ listOfLessons, setLesson, setScore }) => {
+const List = ({ listOfLessons, setLesson, setScore, gameId }) => {
     return(
         <>
             {listOfLessons.map(lesson => (
@@ -9,6 +9,7 @@ const List = ({ listOfLessons, setLesson, setScore }) => {
                     lesson={lesson}
                     setLesson={setLesson}
                     setScore={setScore}
+                    gameId={gameId}
                 />
             ))}
         </>
