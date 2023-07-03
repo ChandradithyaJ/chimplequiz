@@ -29,7 +29,7 @@ const HomePage = ({ username, setUsername }) => {
 
     return(
         <div className="home-page">
-            <h2>Welcome back, {username}!</h2>
+            <h2>Welcome back, {username ? username : auth.currentUser.displayName}!</h2>
             <div className="button-row">
                 <button onClick={goToLessons}>
                     Take a quiz
