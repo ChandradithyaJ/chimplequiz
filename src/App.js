@@ -27,11 +27,12 @@ function App() {
   const [listOfLessons, setListOfLessons] = useState([])
   const [lesson, setLesson] = useState({})
   const [username, setUsername] = useState("")
+  const [listOfGames, setListOfGames] = useState([])
   const [gameId, setGameId] = useState('')
-  const [gameURL, setGameURL] = useState('')
   
-  // get database
+  // get databases
   const lessonsCollectionRef = collection(db, "lessons")
+  const gamesCollectionRef = collection(db, "games")
 
   useEffect(() => {
     // get list of lessons
@@ -57,6 +58,30 @@ function App() {
 
     getLessons()
   }, [lessonsCollectionRef, listOfLessons])
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        // read in all game data
+        const Games = await getDocs(gamesCollectionRef)
+        const gamesData = Games.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id
+        }))
+        setListOfGames(gamesData)
+      } catch (err) {
+        if (err.response) {
+          // Not in the 200 response range
+          console.log(err.response.data)
+          console.log(err.response.status)
+          console.log(err.response.headers)
+        } else {
+          console.log(`Error: ${err.message}`)
+        }
+      }
+    }
+    fetchGames()
+  }, [listOfGames])
 
   return (
     <div className="App">
@@ -86,27 +111,26 @@ function App() {
             element={<HomePage
               username={username}
               setUsername={setUsername}
+              setGameId={setGameId}
             />}
           />
           <Route
             exact path='/lessons'
             element={<LessonsList
               listOfLessons={listOfLessons}
-              lesson={lesson}
               setLesson={setLesson}
               setScore={setScore}
-              gameId={gameId}
               setGameId={setGameId}
-              gameURL={gameURL}
-              setGameURL={setGameURL}
             />}
           />
           <Route
-            exact path={`/lessons/${lesson.routeName}-quiz-waiting-room`}
-            element={<WaitingRoom
+            exact path={`/lessons/${lesson.routeName}-quiz-waiting-room`} element={<WaitingRoom
               lesson={lesson}
               setScore={setScore}
               gameId={gameId}
+              gamesCollectionRef={gamesCollectionRef}
+              listOfGames={listOfGames}
+              setListOfGames={setListOfGames}
             />}
           />
           <Route
@@ -116,6 +140,7 @@ function App() {
               score={score}
               setScore={setScore}
               gameId={gameId}
+              listOfGames={listOfGames}
             />}
           />
           <Route

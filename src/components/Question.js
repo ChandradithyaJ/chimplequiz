@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { auth, db } from "../config/firebase"
+import { updateDoc, doc } from "firebase/firestore"
 
-const Question = ({ lesson, score, setScore, gameId }) => {
+const Question = ({ lesson, score, setScore, gameId, listOfGames }) => {
     const [questionNum, setQuestionNum] = useState(1)
     const [selectedOption, setSelectedOption] = useState(null)
     const [submitted, setSubmitted] = useState(false)
@@ -36,7 +38,7 @@ const Question = ({ lesson, score, setScore, gameId }) => {
         }
     }
 
-    const goToNextQuestion = () => {
+    const goToNextQuestion = async () => {
         window.history.replaceState("/home", '')
         if (selectedOption !== null && lesson.questions.length > questionNum) {
             setQuestionNum(questionNum + 1)
@@ -48,6 +50,22 @@ const Question = ({ lesson, score, setScore, gameId }) => {
             setSelectedOption(null)
             setSubmitted(false)
             setIsCorrect(false)
+            
+            // update the game status in the database
+            const currentGameArray = listOfGames.filter((game) => game.gameId === gameId)
+            const currentGame = currentGameArray[0]
+            const gameToUpdate = doc(db, "games", currentGame.id)
+            const requiredPlayer = currentGame.players.find((player) => player.playerId === auth.currentUser.uid)
+            const index = currentGame.players.indexOf(requiredPlayer)
+            currentGame.players[index].score = score
+            currentGame.players[index].finished = true
+            const players = currentGame.players
+            try {
+                await updateDoc(gameToUpdate, {players: players})
+            } catch (err) {
+                console.log(`Error: ${err.message}`)
+            }
+
             navigate(`/lessons/${lesson.routeName}-quiz-results`)
         }
     }

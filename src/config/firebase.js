@@ -5,6 +5,7 @@ import { getFirestore } from 'firebase/firestore'
 const firebaseConfig = {
     apiKey: "AIzaSyA6S0rtACM8OcsZBb_Y20BdwnYN_XGPUQs",
     authDomain: "chimple-quiz.firebaseapp.com",
+    databaseURL: "https://chimple-quiz-default-rtdb.firebaseio.com",
     projectId: "chimple-quiz",
     storageBucket: "chimple-quiz.appspot.com",
     messagingSenderId: "453961026771",

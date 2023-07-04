@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 import { MdOutlineQuiz } from 'react-icons/md'
+import { v4 } from "uuid"
 
-const Lesson = ({ lesson, setLesson, setScore, gameId }) => {
+const Lesson = ({ lesson, setLesson, setGameId }) => {
     const goToWaitingRoom = () => {
+        const uniqueGameId = lesson.routeName + "#" + v4()
+        setGameId(uniqueGameId)
         setLesson(lesson)
     }
 

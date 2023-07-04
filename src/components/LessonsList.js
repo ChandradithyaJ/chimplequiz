@@ -1,7 +1,7 @@
 import List from "./LessonsListComponents/List"
 import { useNavigate } from "react-router-dom"
 
-const LessonsList = ({ listOfLessons, lesson, setLesson, setScore, gameId, setGameId, gameURL, setGameURL }) => {
+const LessonsList = ({ listOfLessons, setLesson, setScore, setGameId }) => {
     const navigate = useNavigate()
 
     const returnToHomePage = () => {
@@ -16,6 +16,7 @@ const LessonsList = ({ listOfLessons, lesson, setLesson, setScore, gameId, setGa
                     listOfLessons={listOfLessons}
                     setLesson={setLesson} 
                     setScore={setScore}
+                    setGameId={setGameId}
                 />
             ) : (
                 <p style={{ marginTop: "2rem" }}>

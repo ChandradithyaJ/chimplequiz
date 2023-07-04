@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom"
 import { auth } from "../config/firebase"
 import { signOut } from "firebase/auth"
 
-const HomePage = ({ username, setUsername }) => {
+const HomePage = ({ username, setUsername, setGameId }) => {
     const navigate = useNavigate()
 
-    const goToLessons = () => {        
+    const goToLessons = () => {    
         navigate('/lessons')
     }
 
