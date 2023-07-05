@@ -114,6 +114,11 @@
     text-align: center;
     border-radius: 13px;
     margin-top: 2vh;
+    margin-bottom: 2vh;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.next-question:hover {
+    box-shadow: 0 5px 15px #5461d2;
 }
