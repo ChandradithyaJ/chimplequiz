@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chimplequiz/static/css/main.566a62e1.css",
-    "main.js": "/chimplequiz/static/js/main.460409df.js",
+    "main.css": "/chimplequiz/static/css/main.2b22875e.css",
+    "main.js": "/chimplequiz/static/js/main.894c9ac5.js",
     "static/media/children-studying-2.jpg": "/chimplequiz/static/media/children-studying-2.41194b63e3621d2d3bbd.jpg",
     "static/media/chimple-logo.png": "/chimplequiz/static/media/chimple-logo.19c9b654cd47b0dd007b.png",
     "index.html": "/chimplequiz/index.html",
-    "main.566a62e1.css.map": "/chimplequiz/static/css/main.566a62e1.css.map",
-    "main.460409df.js.map": "/chimplequiz/static/js/main.460409df.js.map"
+    "main.2b22875e.css.map": "/chimplequiz/static/css/main.2b22875e.css.map",
+    "main.894c9ac5.js.map": "/chimplequiz/static/js/main.894c9ac5.js.map"
   },
   "entrypoints": [
-    "static/css/main.566a62e1.css",
-    "static/js/main.460409df.js"
+    "static/css/main.2b22875e.css",
+    "static/js/main.894c9ac5.js"
   ]
 }
