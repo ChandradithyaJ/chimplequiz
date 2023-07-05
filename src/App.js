@@ -31,6 +31,7 @@ function App() {
   const [listOfGames, setListOfGames] = useState([])
   const [gameId, setGameId] = useState('')
   const [quizLink, setQuizLink] = useState('')
+  const [players, setPlayers] = useState([])
   
   // get databases
   const lessonsCollectionRef = collection(db, "lessons")
@@ -154,14 +155,18 @@ function App() {
               setScore={setScore}
               gameId={gameId}
               listOfGames={listOfGames}
+              setPlayers={setPlayers}
             />}
           />
           <Route
             exact path={`/lessons/${lesson.routeName}-quiz-results`}
             element={<Result
               setScore={setScore}
-              listOfGames={listOfGames}
+              players={players}
+              setPlayers={setPlayers}
               gameId={gameId}
+              gamesCollectionRef={gamesCollectionRef}
+              setListOfGames={setListOfGames}
             />}
           />
           <Route

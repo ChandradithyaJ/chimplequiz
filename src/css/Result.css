@@ -19,7 +19,7 @@
 
 .player-container {
     background-image: linear-gradient(to bottom,white 0%, #fde7b2 50%, #c2b27a 100%);
-    color: rgb(18, 150, 11);
+    color: rgb(14, 99, 9);
     margin-bottom: 2vh;
     width: 50vw;
 }
@@ -33,14 +33,20 @@
     transition: 0.5s;
 }
 
+.player-details {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .player-name {
-    color: whitesmoke;
     padding-left: 3vw;
     padding-right: 3vw;
 }
 
 .player-score {
-    color: whitesmoke;
     padding-right: 3vw;
 }
 

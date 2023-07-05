@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { auth, db } from "../config/firebase"
 import { updateDoc, doc } from "firebase/firestore"
 
-const Question = ({ lesson, score, setScore, gameId, listOfGames }) => {
+const Question = ({ lesson, score, setScore, gameId, listOfGames, setPlayers }) => {
     const [questionNum, setQuestionNum] = useState(1)
     const [selectedOption, setSelectedOption] = useState(null)
     const [submitted, setSubmitted] = useState(false)
@@ -60,6 +60,7 @@ const Question = ({ lesson, score, setScore, gameId, listOfGames }) => {
             currentGame.players[index].score = score
             currentGame.players[index].finished = true
             const players = currentGame.players
+            setPlayers(players)
             try {
                 await updateDoc(gameToUpdate, {players: players})
             } catch (err) {
