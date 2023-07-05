@@ -1,22 +1,21 @@
 import { useNavigate } from "react-router-dom"
-import { auth } from "../config/firebase"
-import { addDoc } from 'firebase/firestore'
+import { auth, db } from "../config/firebase"
+import { addDoc, doc, updateDoc } from 'firebase/firestore'
 
 const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames, setListOfGames }) => {
     const navigate = useNavigate()
 
     const signUpForQuiz = async () => {
         // create a new game if not already present
+        const newPlayer = [{
+            playerId: auth.currentUser.uid,
+            displayName: auth.currentUser.displayName,
+            score: 0,
+            finished: false
+        }]
         const newGame = {
             gameId: gameId,
-            players: [
-                {
-                    playerId: auth.currentUser.uid,
-                    displayName: auth.currentUser.displayName,
-                    score: 0,
-                    finished: false
-                }
-            ]
+            players: newPlayer
         }
 
         // check if current game is present in the database
@@ -28,12 +27,17 @@ const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames
             setListOfGames(allGames)
             console.log(listOfGames)
         } else {
-            currentQuiz[0].players.push({
-                playerId: auth.currentUser.uid,
-                displayName: auth.currentUser.displayName,
-                score: 0,
-                finished: false
-            })
+            // register the user in the database
+            const currentGameArray = listOfGames.filter((game) => game.gameId === gameId)
+            const currentGame = currentGameArray[0]
+            const gameToUpdate = doc(db, "games", currentGame.id)
+            currentGame.players = [...currentGame.players, newPlayer[0]]
+            const players = currentGame.players
+            try {
+                await updateDoc(gameToUpdate, { players: players })
+            } catch (err) {
+                console.log(`Error: ${err.message}`)
+            }
         }
     }
 

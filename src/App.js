@@ -6,6 +6,7 @@ import LessonsList from './components/LessonsList'
 import QuizEditor from './components/QuizEditor'
 import HistoryPage from './components/HistoryPage'
 import WaitingRoom from './components/WaitingRoom'
+import JoinQuizConfirmation from './components/JoinQuizConfirmation'
 import Question from './components/Question'
 import Result from './components/Result'
 import './css/Header.css'
@@ -29,6 +30,7 @@ function App() {
   const [username, setUsername] = useState("")
   const [listOfGames, setListOfGames] = useState([])
   const [gameId, setGameId] = useState('')
+  const [quizLink, setQuizLink] = useState('')
   
   // get databases
   const lessonsCollectionRef = collection(db, "lessons")
@@ -81,7 +83,7 @@ function App() {
       }
     }
     fetchGames()
-  }, [listOfGames])
+  }, [listOfGames, gamesCollectionRef])
 
   return (
     <div className="App">
@@ -118,10 +120,19 @@ function App() {
             exact path='/lessons'
             element={<LessonsList
               listOfLessons={listOfLessons}
+              lesson={lesson}
               setLesson={setLesson}
               setScore={setScore}
               setGameId={setGameId}
+              quizLink={quizLink}
+              setQuizLink={setQuizLink}
             />}
+          />
+          <Route
+            exact path={`/lessons/join-quiz-confirmation`}
+            element={<JoinQuizConfirmation
+              lesson={lesson}
+              />}
           />
           <Route
             exact path={`/lessons/${lesson.routeName}-quiz-waiting-room`} element={<WaitingRoom
