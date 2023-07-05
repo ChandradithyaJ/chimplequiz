@@ -36,7 +36,9 @@ const LessonsList = ({ listOfLessons, lesson, setLesson, setScore, setGameId, qu
                 </p>
             )}
             <form className="join-quiz">
-                <label htmlFor="quiz-link">Join Quiz</label>
+                <label htmlFor="quiz-link">
+                    Enter shared link to join a quiz!
+                </label>
                 <input 
                     id="quiz-link"
                     required
