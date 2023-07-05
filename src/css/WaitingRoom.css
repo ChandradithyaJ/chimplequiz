@@ -53,6 +53,10 @@
     width: 65vw;
 }
 
+.hide-quiz-confirmation {
+    display: none;
+}
+
 .join-quiz-confirmation p {
     font-weight: 500;
     font-size: 20px;
@@ -73,4 +77,37 @@
 .join-quiz-confirmation button:hover {
     color: black;
     box-shadow: 0 5px 15px black;
+}
+
+.return-to-home-page {
+    color: rgb(91, 84, 126);
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #E1D9FF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 2vh;
+}
+
+.go-to-waiting-room {
+    display: none;
+}
+
+.return-home-from-confirmation {
+    color: whitesmoke;
+    background-image: linear-gradient(to bottom, #3D2657 0%, #B159D3 100%);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    margin-top: 3vh;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.return-home-from-confirmation:hover {
+    color: white;
+    box-shadow: 0 5px 15px #01030c;
 }

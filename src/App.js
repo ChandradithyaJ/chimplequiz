@@ -132,6 +132,8 @@ function App() {
             exact path={`/lessons/join-quiz-confirmation`}
             element={<JoinQuizConfirmation
               lesson={lesson}
+              gameId={gameId}
+              listOfGames={listOfGames}
               />}
           />
           <Route
