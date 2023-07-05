@@ -159,8 +159,9 @@ function App() {
           <Route
             exact path={`/lessons/${lesson.routeName}-quiz-results`}
             element={<Result
-              score={score}
               setScore={setScore}
+              listOfGames={listOfGames}
+              gameId={gameId}
             />}
           />
           <Route
