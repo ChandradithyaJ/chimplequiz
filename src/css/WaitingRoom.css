@@ -17,6 +17,37 @@
     width: 65vw;
 }
 
+.copy-link {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.copy-link-input {
+    height: 3vh;
+    width: 25vw;
+    border: solid 1px rgb(207, 207, 207);
+    transition: 0.5s;
+}
+
+.copy-link-input:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+.copy-link-button {
+    border: solid 0.5px rgb(29, 28, 28);
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: rgb(235, 234, 234);
+    transition: 0.5s;
+}
+
+.copy-link-button:hover {
+    background-color: whitesmoke;
+}
+
 .start-quiz {
     margin-right: 2vw;
     height: 55px;

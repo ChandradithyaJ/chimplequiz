@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { auth, db } from "../config/firebase"
 import { addDoc, doc, updateDoc } from 'firebase/firestore'
+import { MdContentCopy } from "react-icons/md"
 
 const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames, setListOfGames }) => {
     const navigate = useNavigate()
@@ -41,6 +42,19 @@ const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames
         }
     }
 
+    // copy the link on focus and/or on clicking the button
+    document.querySelectorAll(".copy-link").forEach(copyLinkField => {
+        const inputField = copyLinkField.querySelector(".copy-link-input")
+        const copyButton = copyLinkField.querySelector(".copy-link-button")
+
+        inputField.addEventListener("focus", () => inputField.select())
+        copyButton.addEventListener("click", () => {
+            const link = inputField.value
+            inputField.select()
+            navigator.clipboard.writeText(link)
+        })
+    })
+
     const startQuiz = () => {
         setScore(0)
         signUpForQuiz()
@@ -62,7 +76,20 @@ const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames
                         There is no time limit.
                     </li>
                     <li>
-                        Share the game id {gameId} with friends!
+                        Share the game id below with friends!
+                    </li>
+                    <li className="copy-link">
+                        <input 
+                            type="text" 
+                            className="copy-link-input"
+                            readOnly
+                            value={gameId}
+                        />
+                        <MdContentCopy 
+                            className="copy-link-button"
+                            role="button"
+                            size={24}
+                        />
                     </li>
                 </ul>
                 <button 
