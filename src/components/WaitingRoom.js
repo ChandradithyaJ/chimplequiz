@@ -6,13 +6,27 @@ import { MdContentCopy } from "react-icons/md"
 const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames, setListOfGames }) => {
     const navigate = useNavigate()
 
+    function convertDateToString(datetimeObject) {
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December']
+        let monthName = datetimeObject.getMonth();
+        monthName = monthNames[monthName];
+
+        const dayOfMonth = datetimeObject.getDate();
+
+        const year = datetimeObject.getFullYear();
+
+        return `${monthName} ${dayOfMonth} ${year}`;
+    }
+
     const signUpForQuiz = async () => {
         // create a new game if not already present
+        const todayDate = new Date()
         const newPlayer = [{
             playerId: auth.currentUser.uid,
             displayName: auth.currentUser.displayName,
             score: 0,
-            finished: false
+            finished: false,
+            date: convertDateToString(todayDate)
         }]
         const newGame = {
             gameId: gameId,
