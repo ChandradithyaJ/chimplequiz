@@ -175,7 +175,10 @@ function App() {
           />
           <Route
             exact path='/history'
-            element={<HistoryPage />}
+            element={<HistoryPage 
+              listOfGames={listOfGames}
+              listOfLessons={listOfLessons}
+            />}
           />
           <Route
             path='*'

@@ -8,7 +8,6 @@ const LessonsList = ({ listOfLessons, lesson, setLesson, setScore, setGameId, qu
         let indexOfHash = quizLink.indexOf('#')
         let lessonTitle = quizLink.substring(0, indexOfHash)
 
-
         setGameId(quizLink)
         const requiredLessonArray = listOfLessons.filter((lesson) => lesson.routeName === lessonTitle)
         setLesson(requiredLessonArray[0])

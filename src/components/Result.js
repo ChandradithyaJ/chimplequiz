@@ -30,7 +30,6 @@ const Result = ({ setScore, players, setPlayers, gameId, gamesCollectionRef, set
             playersList = currentGame.players
             setPlayers(playersList)
             playersList.sort(sortInDescending)
-            console.log(players)
         } catch (err) {
             if (err.response) {
                 // Not in the 200 response range
