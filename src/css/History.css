@@ -1,7 +1,66 @@
 .history-page {
+    color: whitesmoke;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: whitesmoke;
     padding-top: 6vh;
+}
+
+.history-page h3 {
+    padding-bottom: 2vh;
+    text-decoration: underline;
+    color: rgb(182, 244, 253);
+}
+
+.past-quiz-container {
+    background-image: linear-gradient(to bottom,white 0%, #fde7b2 50%, #c2b27a 100%);
+    color: rgb(14, 99, 9);
+    margin-bottom: 2vh;
+    width: 50vw;
+}
+
+.past-quiz-results {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.past-quiz-details {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.past-quiz-lesson-name{
+    padding-left: 3vw;
+}
+
+.past-quiz-date {
+    padding: auto;
+}
+
+.past-quiz-score {
+    padding-right: 3vw;
+}
+
+.return-home-from-history {
+    background-image: linear-gradient(to bottom, #3D2657 0%, #B159D3 100%);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    margin-top: 3vh;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.return-home-from-history:hover {
+    color: white;
+    box-shadow: 0 5px 15px #afe0f5;
 }

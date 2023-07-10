@@ -62,7 +62,6 @@ const Result = ({ setScore, players, setPlayers, gameId, gamesCollectionRef, set
             ) : (
                 <p style={{ marginTop: "2rem" }}>
                     Sorry! There has been an error displaying the results.
-                    {players.length}
                 </p>
             )}
             <div className="return-home" role="button" tabIndex="100" onClick={returnToHomePage}>

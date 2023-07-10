@@ -32,6 +32,7 @@ function App() {
   const [gameId, setGameId] = useState('')
   const [quizLink, setQuizLink] = useState('')
   const [players, setPlayers] = useState([])
+  const [history, setHistory] = useState([])
   
   // get databases
   const lessonsCollectionRef = collection(db, "lessons")
@@ -176,8 +177,11 @@ function App() {
           <Route
             exact path='/history'
             element={<HistoryPage 
-              listOfGames={listOfGames}
+              history={history}
+              setHistory={setHistory}
+              gamesCollectionRef={gamesCollectionRef}
               listOfLessons={listOfLessons}
+              setListOfGames={setListOfGames}
             />}
           />
           <Route
