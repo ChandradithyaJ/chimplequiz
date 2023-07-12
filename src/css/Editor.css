@@ -1,7 +1,81 @@
 .editor-page {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: whitesmoke;
     padding-top: 6vh;
+}
+
+.editor-page h3 {
+    padding-bottom: 2vh;
+    text-decoration: underline;
+    color: rgb(168, 153, 240);
+}
+
+.edit-lesson-container {
+    background-image: linear-gradient(to bottom, #203A43 0%, #6796A9 100%);
+    color: whitesmoke;
+    margin-bottom: 2vh;
+    width: 50vw;
+}
+
+.edit-lesson {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.edit-lesson:hover {
+    color: white;
+    box-shadow: 0 5px 15px #afe0f5;
+}
+
+.md-outline-container {
+    width: 3vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.edit-lesson-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-lesson-name {
+    color: whitesmoke;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.edit-question-count {
+    color: whitesmoke;
+    padding-right: 3vw;
+}
+
+.add-new-lesson {
+    padding-top: 2vh;
+    padding-bottom: 5vh;
+    color: #afe0f5;
+}
+
+.return-home-from-editor {
+    background-image: linear-gradient(to bottom, #3D2657 0%, #B159D3 100%);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-bottom: 8vh;
+}
+
+.return-home-from-editor:hover {
+    color: white;
+    box-shadow: 0 5px 15px #afe0f5;
 }

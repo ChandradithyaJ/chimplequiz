@@ -1,7 +1,7 @@
 import List from "./LessonsListComponents/List"
 import { useNavigate } from "react-router-dom"
 
-const LessonsList = ({ listOfLessons, lesson, setLesson, setScore, setGameId, quizLink, setQuizLink }) => {
+const LessonsList = ({ listOfLessons, setLesson, setScore, setGameId, quizLink, setQuizLink }) => {
     const navigate = useNavigate()
 
     const extractQuizDetails = () => {

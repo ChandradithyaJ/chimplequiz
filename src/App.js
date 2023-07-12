@@ -3,7 +3,7 @@ import LoginPage from './components/LoginPage'
 import ChimpleQuizzes from './components/ChimpleQuizzes'
 import HomePage from './components/HomePage'
 import LessonsList from './components/LessonsList'
-import QuizEditor from './components/QuizEditor'
+import QuizEditorPage from './components/QuizEditorPage'
 import HistoryPage from './components/HistoryPage'
 import WaitingRoom from './components/WaitingRoom'
 import JoinQuizConfirmation from './components/JoinQuizConfirmation'
@@ -172,7 +172,12 @@ function App() {
           />
           <Route
             exact path='/editor'
-            element={<QuizEditor />}
+            element={<QuizEditorPage 
+              listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
+              setLesson={setLesson}
+              lessonsCollectionRef={lessonsCollectionRef}
+            />}
           />
           <Route
             exact path='/history'
