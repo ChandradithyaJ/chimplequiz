@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import ListLessons from "./EditorPageComponents/ListLessons"
-import { useEffect } from "react"
-import { getDocs } from "firebase/firestore"
 
 const QuizEditorPage = (listOfLessons, setLesson) => {
     const navigate = useNavigate()
 
+    const addNewLesson = () => {
+        navigate('/editor/add-new-lesson')
+    }
+
     const returnToHomePage = () => {
-        console.log(listOfLessons)
         navigate('/home')
     }
 
@@ -28,6 +29,7 @@ const QuizEditorPage = (listOfLessons, setLesson) => {
                 className="add-new-lesson" 
                 role="button" 
                 tabIndex="99"
+                onClick={addNewLesson}
             >
                 Add new lesson
             </div>

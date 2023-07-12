@@ -36,11 +36,9 @@ const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames
         // check if current game is present in the database
         const currentQuiz = listOfGames.filter((game) => game.gameId === gameId)
         if (currentQuiz.length === 0) {
-            console.log(newGame)
             await addDoc(gamesCollectionRef, newGame)
             const allGames = [...listOfGames, newGame]
             setListOfGames(allGames)
-            console.log(listOfGames)
         } else {
             // register the user in the database
             const currentGameArray = listOfGames.filter((game) => game.gameId === gameId)

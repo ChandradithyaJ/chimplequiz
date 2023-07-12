@@ -4,6 +4,8 @@ import ChimpleQuizzes from './components/ChimpleQuizzes'
 import HomePage from './components/HomePage'
 import LessonsList from './components/LessonsList'
 import QuizEditorPage from './components/QuizEditorPage'
+import NewLesson from './components/EditorPageComponents/NewLesson'
+import AddQuestion from './components/EditorPageComponents/AddQuestion'
 import HistoryPage from './components/HistoryPage'
 import WaitingRoom from './components/WaitingRoom'
 import JoinQuizConfirmation from './components/JoinQuizConfirmation'
@@ -33,6 +35,11 @@ function App() {
   const [quizLink, setQuizLink] = useState('')
   const [players, setPlayers] = useState([])
   const [history, setHistory] = useState([])
+
+  const [lessonName, setLessonName] = useState('')
+  const [question, setQuestion] = useState('')
+  const [options, setOptions] = useState([])
+  const [correctAnswer, setCorrectAnswer] = useState(null)
   
   // get databases
   const lessonsCollectionRef = collection(db, "lessons")
@@ -177,6 +184,28 @@ function App() {
               setListOfLessons={setListOfLessons}
               setLesson={setLesson}
               lessonsCollectionRef={lessonsCollectionRef}
+            />}
+          />
+          <Route 
+            exact path='/editor/add-new-lesson'
+            element={<NewLesson 
+              listOfLessons={listOfLessons}
+              setLesson={setLesson}
+              lessonsCollectionRef={lessonsCollectionRef}
+              lessonName={lessonName}
+              setLessonName={setLessonName}
+            />}
+          />
+          <Route 
+            exact path={`/editor/${lesson.routeName}-add-questions`}
+            element={<AddQuestion 
+              lesson={lesson}
+              question={question}
+              setQuestion={setQuestion}
+              options={options}
+              setOptions={setOptions}
+              correctAnswer={correctAnswer}
+              setCorrectAnswer={setCorrectAnswer}
             />}
           />
           <Route
