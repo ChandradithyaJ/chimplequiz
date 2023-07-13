@@ -1,5 +1,5 @@
 # Chimple Quizzes
-Multiplayer Quiz App for Chimple Learning!  
+***Multiplayer Quiz App for Chimple Learning!***  
 
 ## Quick Links  
   - [Getting Started](https://github.com/ChandradithyaJ/chimplequiz#getting-started)  
