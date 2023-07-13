@@ -31,9 +31,16 @@ If you didn't take any quizzes, you can start right away!
 ## Quiz Editor
 *The quiz editor mode is for teachers and developers only!*  
 
-**You can add new questions to lessons, modify them, and even add whole new lessons!**  
+**You can add new questions to lessons, modify them, delete them, and even add whole new lessons!**  
  - ### Add a new lesson
-   - Click the 'add new lesson' button to start adding a new quiz for people to take.
-   - Create a question by filling in all the required fields. There are four options and the 'Correct Answer' field takes a number from 1 to 4, the option number of the correct answer.
-   - Click on submit to create a new question.
-   - If you're done creating questions, or need a break, you can always go back to the home page!
+   1. Click the 'add new lesson' button to start adding a new quiz for people to take.
+   2. Create a question by filling in all the required fields. There are four options and the 'Correct Answer' field takes a number from 1 to 4, the option number of the correct answer.
+   3. Click on submit to create a new question.
+   4. If you're done creating questions, or need a break, you can always go back to the home page!
+
+ - ### Edit a lesson (or add a new question)
+   1. Click on the lesson you want to edit.
+   2. You can either modify an existing question by clicking on the question, or create a new question by clicking on the 'Add new question' button.
+   3. Add/Edit Question
+      - If you're adding a new question, follow the same steps as described in the [**Add a new lesson**](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#add-a-new-lesson) section.
+      - If you're modifying a existing question, the process is the same as the above, but the question, options, and correct answer initially entered will be displayed for you to change.
