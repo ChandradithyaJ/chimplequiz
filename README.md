@@ -1,10 +1,18 @@
 # Chimple Quizzes
-Multiplayer Quiz App for Chimple Learning!
+Multiplayer Quiz App for Chimple Learning!  
+
+## Quick Links  
+  - [Getting Started](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#getting-started)  
+  - [Take/Host/Join a Quiz](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#takehostjoin-a-quiz)
+  - [View your History](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#view-your-history)
+  - [Quiz Editor](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#quiz-editor)
+    - [Add a new lesson](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#add-a-new-lesson)
+    - [Edit/Delete a lesson (add/modify/delete questions)](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#edit-a-lesson-or-add-a-new-question)
 
 ## Getting Started
 Sign in with Gmail by clicking the sign in button.
 
-## Take a Quiz
+## Take/Host/Join a Quiz
 **1. Select any of the lessons displayed to take a quiz.**
  - ### Host a quiz
    - Share the game link with others so they can join!  
@@ -24,7 +32,7 @@ Sign in with Gmail by clicking the sign in button.
  - ### Multiplayer Leaderboard
    - If you're playing multiplayer, only the results of people who have finished the game are displayed. You can return to the home page. Your results can always be viewed in the history section.
 
-## See your History
+## View your History
 Click on the history button to view your results in past quizzes.  
 If you didn't take any quizzes, you can start right away!  
 
