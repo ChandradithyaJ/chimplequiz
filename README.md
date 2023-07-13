@@ -26,4 +26,14 @@ Sign in with Gmail by clicking the sign in button.
 
 ## See your History
 Click on the history button to view your results in past quizzes.  
-If you didn't take any quizzes, you can start right away!
+If you didn't take any quizzes, you can start right away!  
+
+## Quiz Editor
+*The quiz editor mode is for teachers and developers only!*  
+
+**You can add new questions to lessons, modify them, and even add whole new lessons!**  
+ - ### Add a new lesson
+   - Click the 'add new lesson' button to start adding a new quiz for people to take.
+   - Create a question by filling in all the required fields. There are four options and the 'Correct Answer' field takes a number from 1 to 4, the option number of the correct answer.
+   - Click on submit to create a new question.
+   - If you're done creating questions, or need a break, you can always go back to the home page!
