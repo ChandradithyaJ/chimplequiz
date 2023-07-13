@@ -42,5 +42,5 @@ If you didn't take any quizzes, you can start right away!
    1. Click on the lesson you want to edit.
    2. You can either modify an existing question by clicking on the question, or create a new question by clicking on the 'Add new question' button.
    3. Add/Edit Question
-      - If you're adding a new question, follow the same steps as described in the [**Add a new lesson**](https://github.com/ChandradithyaJ/chimplequiz#add-a-new-lesson) section.
+      - If you're adding a new question, follow the same steps as described in the [[**Add a new lesson**]](https://github.com/ChandradithyaJ/chimplequiz#take-a-quiz) section.
       - If you're modifying a existing question, the process is the same as the above, but the question, options, and correct answer initially entered will be displayed for you to change.
