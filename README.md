@@ -2,12 +2,12 @@
 Multiplayer Quiz App for Chimple Learning!  
 
 ## Quick Links  
-  - [Getting Started](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#getting-started)  
-  - [Take/Host/Join a Quiz](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#takehostjoin-a-quiz)
-  - [View your History](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#view-your-history)
-  - [Quiz Editor](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#quiz-editor)
-    - [Add a new lesson](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#add-a-new-lesson)
-    - [Edit/Delete a lesson (add/modify/delete questions)](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#edit-a-lesson-or-add-a-new-question)
+  - [Getting Started](https://github.com/ChandradithyaJ/chimplequiz#getting-started)  
+  - [Take/Host/Join a Quiz](https://github.com/ChandradithyaJ/chimplequiz#takehostjoin-a-quiz)
+  - [View your History](https://github.com/ChandradithyaJ/chimplequiz/#view-your-history)
+  - [Quiz Editor](https://github.com/ChandradithyaJ/chimplequiz/#quiz-editor)
+    - [Add a new lesson](https://github.com/ChandradithyaJ/chimplequiz/#add-a-new-lesson)
+    - [Edit/Delete a lesson (add/modify/delete questions)](https://github.com/ChandradithyaJ/chimplequiz/#edit-a-lesson-or-add-a-new-question)
 
 ## Getting Started
 Sign in with Gmail by clicking the sign in button.
