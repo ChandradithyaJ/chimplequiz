@@ -2,7 +2,7 @@
 Multiplayer Quiz App for Chimple Learning!
 
 ## Getting Started
-Sign in with Gmail by clicking the button.
+Sign in with Gmail by clicking the sign in button.
 
 ## Take a Quiz
 **1. Select any of the lessons displayed to take a quiz.**
@@ -23,3 +23,7 @@ Sign in with Gmail by clicking the button.
   - In single player mode, your results are displayed and you can go back to the home page. You can always view your results in the history section.
  - ### Multiplayer Leaderboard
    - If you're playing multiplayer, only the results of people who have finished the game are displayed. You can return to the home page. Your results can always be viewed in the history section.
+
+## See your History
+Click on the history button to view your results in past quizzes.  
+If you didn't take any quizzes, you can start right away!
