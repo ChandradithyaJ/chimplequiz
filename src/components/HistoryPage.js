@@ -4,7 +4,7 @@ import { auth } from "../config/firebase"
 import ListPastQuiz from "./HistoryPageComponents/ListPastQuiz"
 import { getDocs } from "firebase/firestore"
 
-const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, listOfGames, setListOfGames}) => {
+const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, listOfGames}) => {
     const navigate = useNavigate()
     const returnToHomePage = () => {
         navigate('/home')
@@ -33,6 +33,7 @@ const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, l
 
     const fetchHistory = async () => {
         try {
+            console.log('fetch history')
             let participatedGames = []
             for(const game of listOfGames){
                 for(const player of game.players){

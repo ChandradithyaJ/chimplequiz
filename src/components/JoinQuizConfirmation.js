@@ -21,6 +21,7 @@ const JoinQuizConfirmation = ({ lesson, gameId, listOfGames }) => {
 
     useEffect(() => {
         // reload to show to return home button
+        console.log('displaying home button')
     }, [returnHome])
     
     return(
@@ -37,7 +38,7 @@ const JoinQuizConfirmation = ({ lesson, gameId, listOfGames }) => {
             <div
                 className={!returnHome ? 'go-to-waiting-room' : 'return-to-home-page'}
             >
-                <p>Sorry! The quiz link you entered doesn't seem to exist. Please ask for a resend.</p>
+                <p>Sorry! The quiz link you entered doesn't seem to exist. Please refresh the page or ask for a resend.</p>
                 <div className="return-home-from-confirmation" role="button" tabIndex="2" onClick={returnToHomePage}>
                     Go back to the Home Page
                 </div>

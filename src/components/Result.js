@@ -45,6 +45,7 @@ const Result = ({ setScore, players, setPlayers, gameId }) => {
 
     useEffect(() => {
         // update players list
+        console.log("on snapshot triggered in results page")
         onSnapshot(doc(db, "games", gameId), (doc) => {
             const updatedPlayersList = doc.data().players
             console.log(updatedPlayersList)

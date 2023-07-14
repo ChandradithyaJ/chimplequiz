@@ -144,7 +144,6 @@ function App() {
             element={<HomePage
               username={username}
               setUsername={setUsername}
-              setGameId={setGameId}
             />}
           />
           <Route

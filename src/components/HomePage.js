@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { auth } from "../config/firebase"
 import { signOut } from "firebase/auth"
 
-const HomePage = ({ username, setUsername, setGameId }) => {
+const HomePage = ({ username, setUsername }) => {
     const navigate = useNavigate()
 
     const goToLessons = () => {    

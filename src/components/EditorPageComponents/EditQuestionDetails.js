@@ -13,12 +13,13 @@ const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestio
 
     useEffect(() => {
         console.log(typeof(id))
+        console.log('editing question')
         if (requiredQuestion) {
             setOptions(question.options)
             setQuestion(question.question)
             setCorrectAnswer(question.correctAnswer)
         }
-    }, [requiredQuestion, setOptions, setQuestion, setCorrectAnswer])
+    }, [])
 
     const createOptions = (e) => {
         const option = e.target.value
