@@ -5,18 +5,37 @@ import { useNavigate } from "react-router-dom";
 const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, correctAnswer, setCorrectAnswer}) => {
     const navigate = useNavigate()
 
+    let option1 = '', option2 = '', option3 = '', option4 = ''
+
     /* each entered option is an individual event and they all are updated
     into the options array */
-    const createOptions = (e) => {
-        const option = e.target.value
-        const newOptionsArray = [...options, option]
-        setOptions(newOptionsArray)
+    const createOptions1 = (e) => {
+        option1 = e.target.value
+    }
+
+    const createOptions2 = (e) => {
+        option2 = e.target.value
+    }
+
+    const createOptions3 = (e) => {
+        option3 = e.target.value
+    }
+
+    const createOptions4 = (e) => {
+        option4 = e.target.value
+    }
+
+    const createOptions = () => {
+        const optionsArray = [option1, option2, option3, option4]
+        setOptions(optionsArray)
     }
 
     /* add a new question to the lessons collection and then reset the 
     temporary states */
     const addNewQuestion = async (e) => {
         e.preventDefault()
+        createOptions()
+        console.log('options: ', options)
         const addQuestionTo = doc(db, "lessons", lesson.routeName)
         const newQuestion = {
             question: question,
@@ -30,6 +49,7 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
         setOptions([])
         setQuestion('')
         setCorrectAnswer(null)
+        console.log(newQuestion)
         navigate(`/editor/${lesson.routeName}-add-questions`)
     }
 
@@ -56,33 +76,33 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
                     />
-                    <label htmlFor="option1">Option1: </label>
+                    <label htmlFor="option1">Option 1: </label>
                     <input
                         id="option1"
                         type="text"
                         required
-                        onChange={createOptions}
+                        onChange={createOptions1}
                     />
-                    <label htmlFor="option2">Option2: </label>
+                    <label htmlFor="option2">Option 2: </label>
                     <input
                         id="option2"
                         type="text"
                         required
-                        onChange={createOptions}
+                        onChange={createOptions2}
                     />
-                    <label htmlFor="option3">Option3: </label>
+                    <label htmlFor="option3">Option 3: </label>
                     <input
                         id="option3"
                         type="text"
                         required
-                        onChange={createOptions}
+                        onChange={createOptions3}
                     />
-                    <label htmlFor="option4">Option4: </label>
+                    <label htmlFor="option4">Option 4: </label>
                     <input
                         id="option4"
                         type="text"
                         required
-                        onChange={createOptions}
+                        onChange={createOptions4}
                     />
                     <label htmlFor="correct-ans">Correct Answer (Option number): </label>
                     <input

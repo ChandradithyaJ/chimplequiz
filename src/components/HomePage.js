@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { auth } from "../config/firebase"
 import { signOut } from "firebase/auth"
 
-const HomePage = ({ username, setUsername, setLesson }) => {
+const HomePage = ({ username, setUsername }) => {
     const navigate = useNavigate()
 
     const goToLessons = () => {    
@@ -20,8 +20,8 @@ const HomePage = ({ username, setUsername, setLesson }) => {
     const logOut = async () => {
         try{
             await signOut(auth)
-            setUsername('')
-            navigate('/login')
+            console.log('signed out')
+            navigate('/bro')
         } catch (err) {
             console.log(err.message)
         }
