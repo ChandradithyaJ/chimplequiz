@@ -6,6 +6,8 @@ import LessonsList from './components/LessonsList'
 import QuizEditorPage from './components/QuizEditorPage'
 import NewLesson from './components/EditorPageComponents/NewLesson'
 import AddQuestion from './components/EditorPageComponents/AddQuestion'
+import LessonEditor from './components/EditorPageComponents/LessonEditor'
+import EditQuestionDetails from './components/EditorPageComponents/EditQuestionDetails'
 import HistoryPage from './components/HistoryPage'
 import WaitingRoom from './components/WaitingRoom'
 import JoinQuizConfirmation from './components/JoinQuizConfirmation'
@@ -26,16 +28,34 @@ import { db, auth } from './config/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
 function App() {
+  // user score
   const [score, setScore] = useState(0)
+
+  // locally store all the lessons
   const [listOfLessons, setListOfLessons] = useState([])
+
+  // current lesson to display/modify
   const [lesson, setLesson] = useState({})
+
+  // auth.currentUser's name
   const [username, setUsername] = useState("")
+
+  // locally store all the games
   const [listOfGames, setListOfGames] = useState([])
+
+  // current game's id
   const [gameId, setGameId] = useState('')
+
+  // shareable game link
   const [quizLink, setQuizLink] = useState('')
+
+  // list of players in the current game
   const [players, setPlayers] = useState([])
+
+  // user quiz history
   const [history, setHistory] = useState([])
 
+  // temporary states for creating/updating lessons
   const [lessonName, setLessonName] = useState('')
   const [question, setQuestion] = useState('')
   const [options, setOptions] = useState([])
@@ -49,6 +69,7 @@ function App() {
     // get list of lessons
     const getLessons = async () => {
       try {
+        console.log('fetch lessons')
         const Lessons = await getDocs(lessonsCollectionRef)
         const data = Lessons.docs.map((doc) => ({
           ...doc.data(),
@@ -68,11 +89,12 @@ function App() {
     }
 
     getLessons()
-  }, [lessonsCollectionRef, listOfLessons])
+  }, [])
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
+        console.log('fetch games')
         // read in all game data
         const Games = await getDocs(gamesCollectionRef)
         const gamesData = Games.docs.map((doc) => ({
@@ -92,7 +114,7 @@ function App() {
       }
     }
     fetchGames()
-  }, [listOfGames, gamesCollectionRef])
+  }, [])
 
   return (
     <div className="App">
@@ -138,7 +160,7 @@ function App() {
             />}
           />
           <Route
-            exact path={`/lessons/join-quiz-confirmation`}
+            exact path={'/lessons/join-quiz-confirmation'}
             element={<JoinQuizConfirmation
               lesson={lesson}
               gameId={gameId}
@@ -150,7 +172,6 @@ function App() {
               lesson={lesson}
               setScore={setScore}
               gameId={gameId}
-              gamesCollectionRef={gamesCollectionRef}
               listOfGames={listOfGames}
               setListOfGames={setListOfGames}
             />}
@@ -173,17 +194,13 @@ function App() {
               players={players}
               setPlayers={setPlayers}
               gameId={gameId}
-              gamesCollectionRef={gamesCollectionRef}
-              setListOfGames={setListOfGames}
             />}
           />
           <Route
             exact path='/editor'
             element={<QuizEditorPage 
               listOfLessons={listOfLessons}
-              setListOfLessons={setListOfLessons}
               setLesson={setLesson}
-              lessonsCollectionRef={lessonsCollectionRef}
             />}
           />
           <Route 
@@ -209,12 +226,32 @@ function App() {
             />}
           />
           <Route
+            exact path={`/editor/${lesson.routeName}`}
+            element={<LessonEditor 
+              lesson={lesson}
+              setLesson={setLesson}
+            />}
+          />
+          <Route 
+            exact path={`/editor/${lesson.routeName}/:id`}
+            element={<EditQuestionDetails 
+              lesson={lesson}
+              options={options}
+              setOptions={setOptions}
+              question={question}
+              setQuestion={setQuestion}
+              correctAnswer={correctAnswer}
+              setCorrectAnswer={setCorrectAnswer}
+            />}
+          />
+          <Route
             exact path='/history'
             element={<HistoryPage 
               history={history}
               setHistory={setHistory}
               gamesCollectionRef={gamesCollectionRef}
               listOfLessons={listOfLessons}
+              listOfGames={listOfGames}
               setListOfGames={setListOfGames}
             />}
           />

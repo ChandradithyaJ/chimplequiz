@@ -1,0 +1,8 @@
+1. getLessons --> App.js
+	Dependencies --> lessonsCollectionRef, listOfLessons
+	listOfLessons is updated: in the getLessons method and while adding a new lesson
+
+2. fetchGames --> App.js
+	Dependencies --> gamesCollectionRef, listOfGames
+	listOfGames is updated when: in the fetchGames method and while creating a new game to play
+	gamesCollectionRef is accessed when: games data is updated whenever someone finishes a quiz (updateDoc)

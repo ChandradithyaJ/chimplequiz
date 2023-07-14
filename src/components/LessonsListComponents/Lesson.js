@@ -3,6 +3,8 @@ import { MdOutlineQuiz } from 'react-icons/md'
 import { v4 } from "uuid"
 
 const Lesson = ({ lesson, setLesson, setGameId }) => {
+
+    // generate a unique game id using the v4 function
     const goToWaitingRoom = () => {
         const uniqueGameId = lesson.routeName + "#" + v4()
         setGameId(uniqueGameId)

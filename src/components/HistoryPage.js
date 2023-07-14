@@ -4,7 +4,7 @@ import { auth } from "../config/firebase"
 import ListPastQuiz from "./HistoryPageComponents/ListPastQuiz"
 import { getDocs } from "firebase/firestore"
 
-const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, setListOfGames}) => {
+const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, listOfGames, setListOfGames}) => {
     const navigate = useNavigate()
     const returnToHomePage = () => {
         navigate('/home')
@@ -34,16 +34,9 @@ const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, s
     const fetchHistory = async () => {
         try {
             let participatedGames = []
-            // read in all game data
-            const Games = await getDocs(gamesCollectionRef)
-            const gamesData = Games.docs.map((doc) => ({
-                ...doc.data(),
-                id: doc.id
-            }))
-            setListOfGames(gamesData)
-            for(const game of gamesData){
+            for(const game of listOfGames){
                 for(const player of game.players){
-                    if(player.playerId === auth.currentUser.uid && player.finished === true){
+                    if (player.playerId === auth.currentUser.uid && player.finished === true) {
                         const details = {
                             lessonName: extractQuizDetails(game.gameId),
                             score: player.score,
@@ -55,6 +48,7 @@ const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, s
                     }
                 }
             }
+            console.log(participatedGames)
             setHistory(participatedGames)
             participatedGames.sort(sortByDate)
             
@@ -72,7 +66,7 @@ const HistoryPage = ({ history, setHistory, gamesCollectionRef, listOfLessons, s
 
     useEffect(() => {
         fetchHistory()
-    }, [history])
+    }, [])
 
     return(
         <div className="history-page">

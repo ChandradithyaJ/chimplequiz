@@ -5,6 +5,7 @@ const JoinQuizConfirmation = ({ lesson, gameId, listOfGames }) => {
     const [returnHome, setReturnHome] = useState(false)
     const navigate = useNavigate()
 
+    // if game is present, go to the waiting room; else, return home
     const confirm = () => {
         const requiredGameArray = listOfGames.filter((game) => gameId === game.gameId)
         if(requiredGameArray.length === 0){

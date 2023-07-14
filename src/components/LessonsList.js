@@ -12,7 +12,8 @@ const LessonsList = ({ listOfLessons, setLesson, setScore, setGameId, quizLink, 
         const requiredLessonArray = listOfLessons.filter((lesson) => lesson.routeName === lessonTitle)
         setLesson(requiredLessonArray[0])
         
-        navigate(`/lessons/join-quiz-confirmation`)
+        console.log('go to confirmation page')
+        navigate('/lessons/join-quiz-confirmation')
     }
 
     const returnToHomePage = () => {

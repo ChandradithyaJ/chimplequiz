@@ -1,21 +1,19 @@
 import { useNavigate } from "react-router-dom"
 import { auth, db } from "../config/firebase"
-import { addDoc, doc, updateDoc } from 'firebase/firestore'
+import { setDoc, doc, updateDoc } from 'firebase/firestore'
 import { MdContentCopy } from "react-icons/md"
 
-const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames, setListOfGames }) => {
+const WaitingRoom = ({ lesson, setScore, gameId, listOfGames, setListOfGames }) => {
     const navigate = useNavigate()
 
+    // store the date as a string
     function convertDateToString(datetimeObject) {
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December']
-        let monthName = datetimeObject.getMonth();
-        monthName = monthNames[monthName];
-
-        const dayOfMonth = datetimeObject.getDate();
-
-        const year = datetimeObject.getFullYear();
-
-        return `${monthName} ${dayOfMonth} ${year}`;
+        let monthName = datetimeObject.getMonth()
+        monthName = monthNames[monthName]
+        const dayOfMonth = datetimeObject.getDate()
+        const year = datetimeObject.getFullYear()
+        return `${monthName} ${dayOfMonth} ${year}`
     }
 
     const signUpForQuiz = async () => {
@@ -30,19 +28,19 @@ const WaitingRoom = ({ lesson, setScore, gameId, gamesCollectionRef, listOfGames
         }]
         const newGame = {
             gameId: gameId,
-            players: newPlayer
+            players: newPlayer,
+            id: gameId
         }
 
         // check if current game is present in the database
-        const currentQuiz = listOfGames.filter((game) => game.gameId === gameId)
-        if (currentQuiz.length === 0) {
-            await addDoc(gamesCollectionRef, newGame)
+        const currentQuizArray = listOfGames.filter((game) => game.gameId === gameId)
+        if (currentQuizArray.length === 0) {
+            await setDoc(doc(db, "games", gameId), newGame)
             const allGames = [...listOfGames, newGame]
             setListOfGames(allGames)
         } else {
             // register the user in the database
-            const currentGameArray = listOfGames.filter((game) => game.gameId === gameId)
-            const currentGame = currentGameArray[0]
+            const currentGame = currentQuizArray[0]
             const gameToUpdate = doc(db, "games", currentGame.id)
             currentGame.players = [...currentGame.players, newPlayer[0]]
             const players = currentGame.players

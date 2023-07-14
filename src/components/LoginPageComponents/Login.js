@@ -5,6 +5,7 @@ import { signInWithPopup } from "firebase/auth"
 const Login = ({ setUsername }) => {
     const navigate = useNavigate()
 
+    // facilitate user sign in with gmail pop
     const signIn = async () => {
         try{
             await signInWithPopup(auth, googleProvider)

@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import ListPlayers from './ResultPageComponents/ListPlayers'
-import { getDocs } from "firebase/firestore"
+import { onSnapshot, getDoc, doc } from "firebase/firestore"
+import { db } from "../config/firebase"
 
-const Result = ({ setScore, players, setPlayers, gameId, gamesCollectionRef, setListOfGames }) => {
+const Result = ({ setScore, players, setPlayers, gameId }) => {
     const sortInDescending = (player1, player2) => {
         // sort the players based on their score from highest to lowest
         if (player1.score < player2.score) {
@@ -17,16 +18,12 @@ const Result = ({ setScore, players, setPlayers, gameId, gamesCollectionRef, set
 
     const fetchResults = async () => {
         try {
+            console.log('fetch results')
             let playersList = []
-            // read in all game data
-            const Games = await getDocs(gamesCollectionRef)
-            const gamesData = Games.docs.map((doc) => ({
-                ...doc.data(),
-                id: doc.id
-            }))
-            setListOfGames(gamesData)
-            const requiredGameArray = gamesData.filter((game) => game.gameId === gameId)
-            const currentGame = requiredGameArray[0]
+            // read in the required game
+            const gameRef = doc(db, "games", gameId)
+            const gameDoc = await getDoc(gameRef)
+            const currentGame = gameDoc.data()
             playersList = currentGame.players
             setPlayers(playersList)
             playersList.sort(sortInDescending)
@@ -44,7 +41,16 @@ const Result = ({ setScore, players, setPlayers, gameId, gamesCollectionRef, set
 
     useEffect(() => {
         fetchResults()
-    }, [players])
+    }, [])
+
+    useEffect(() => {
+        // update players list
+        onSnapshot(doc(db, "games", gameId), (doc) => {
+            const updatedPlayersList = doc.data().players
+            console.log(updatedPlayersList)
+            setPlayers(updatedPlayersList)
+        })
+    }, [])
 
     const navigate = useNavigate()
     const returnToHomePage = () => {

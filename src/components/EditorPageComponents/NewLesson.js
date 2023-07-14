@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 const NewLesson = ({ listOfLessons, setListOfLessons, lessonsCollectionRef, lessonName, setLessonName }) => {
     const navigate = useNavigate()
 
-    const getRouteName = (string) => {
+    // generate a route name from the display name entered
+    const getRouteName = (displayName) => {
         const replacementCharacter = "_";
-        return string.replace(/[\,\.\'\"\#\s\/]/g, replacementCharacter);
+        return displayName.replace(/[\,\.\'\"\#\s\/]/g, replacementCharacter);
     }
 
+    // add a new lesson to the lessons collection
     const addNewLesson = async () => {
         const newLesson = {
             displayName: lessonName, 
@@ -31,7 +33,7 @@ const NewLesson = ({ listOfLessons, setListOfLessons, lessonsCollectionRef, less
             <div className="add-new-lesson-container">
                 <h2>Add New Lesson</h2>
                 <div className="return-home-from-editor" role="button" tabIndex="100" onClick={returnToHomePage}>
-                    Done adding questions? Return to the Home Page
+                    Return to the Home Page
                 </div>
                 <form className="add-lesson-form" onSubmit={addNewLesson}>
                     <label htmlFor="lesson-name">Lesson Name: </label>
