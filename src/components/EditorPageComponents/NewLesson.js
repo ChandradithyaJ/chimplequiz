@@ -1,13 +1,21 @@
-import { addDoc } from "firebase/firestore"
+import { setDoc, doc } from "firebase/firestore"
+import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
-const NewLesson = ({ listOfLessons, setListOfLessons, lessonsCollectionRef, lessonName, setLessonName }) => {
+const NewLesson = ({ listOfLessons, setListOfLessons, lesson, setLesson, lessonName, setLessonName }) => {
     const navigate = useNavigate()
 
     // generate a route name from the display name entered
     const getRouteName = (displayName) => {
         const replacementCharacter = "_";
-        return displayName.replace(/[\,\.\'\"\#\s\/]/g, replacementCharacter);
+        const charactersToBeReplaced = ['\'', '.', ',', '#', '/', '\\']
+        for(let i = 0; i < displayName.length; i++){
+            if(charactersToBeReplaced.includes(displayName[i])){
+                displayName[i] = replacementCharacter
+            }
+        }
+        console.log(displayName)
+        return displayName
     }
 
     // add a new lesson to the lessons collection
@@ -18,10 +26,21 @@ const NewLesson = ({ listOfLessons, setListOfLessons, lessonsCollectionRef, less
             lessonId: listOfLessons.length + 1,
             questions: []
         }
-        await addDoc(lessonsCollectionRef, newLesson)
+        console.log('new lesson added', newLesson)
+        await setDoc(doc(db, "lessons", newLesson.routeName), newLesson)
+        setLesson(newLesson)
         const updatedListOfLessons = [...listOfLessons, newLesson]
         setListOfLessons(updatedListOfLessons)
-        navigate(`/editor/${lessonName}-add-questions`)
+    }
+
+    const startAddingQuestions = async (e) => {
+        e.preventDefault()
+        await addNewLesson()
+        try{
+            navigate(`/editor/${getRouteName(lessonName)}-add-questions`)
+        } catch (err) {
+            console.log(err.message)
+        }
     }
 
     const returnToHomePage = () => {
@@ -35,7 +54,10 @@ const NewLesson = ({ listOfLessons, setListOfLessons, lessonsCollectionRef, less
                 <div className="return-home-from-editor" role="button" tabIndex="100" onClick={returnToHomePage}>
                     Return to the Home Page
                 </div>
-                <form className="add-lesson-form" onSubmit={addNewLesson}>
+                <form 
+                    className="add-lesson-form" 
+                    onSubmit={startAddingQuestions}
+                >
                     <label htmlFor="lesson-name">Lesson Name: </label>
                     <input
                         id="lesson-name"

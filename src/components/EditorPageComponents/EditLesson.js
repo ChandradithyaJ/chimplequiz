@@ -3,7 +3,13 @@ import { MdOutlineQuiz } from "react-icons/md"
 
 const EditLesson = ({ lesson, setLesson }) => {
     const goToEditLesson = () => {
-        setLesson(lesson)
+        console.log(lesson)
+        try{
+            setLesson(lesson)
+        }
+        catch (err) {
+            console.log(err.message)
+        }
     }
 
     return(

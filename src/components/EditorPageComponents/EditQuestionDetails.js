@@ -28,7 +28,8 @@ const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestio
     }
 
     // update the question's fields
-    const editQuestion = async () => {
+    const editQuestion = async (e) => {
+        e.preventDefault()
         const lessonToEdit = doc(db, "lessons", lesson.id)
         for(const q in lesson.questions){
             if(q.questionId === id){

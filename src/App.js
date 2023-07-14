@@ -144,6 +144,7 @@ function App() {
             element={<HomePage
               username={username}
               setUsername={setUsername}
+              setLesson={setLesson}
             />}
           />
           <Route
@@ -204,10 +205,11 @@ function App() {
           />
           <Route 
             exact path='/editor/add-new-lesson'
-            element={<NewLesson 
+            element={<NewLesson
               listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
+              lesson={lesson}
               setLesson={setLesson}
-              lessonsCollectionRef={lessonsCollectionRef}
               lessonName={lessonName}
               setLessonName={setLessonName}
             />}

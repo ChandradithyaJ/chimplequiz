@@ -15,14 +15,16 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
 
     /* add a new question to the lessons collection and then reset the 
     temporary states */
-    const addNewQuestion = async () => {
-        const addQuestionTo = doc(db, "lessons", lesson.id)
+    const addNewQuestion = async (e) => {
+        e.preventDefault()
+        const addQuestionTo = doc(db, "lessons", lesson.routeName)
         const newQuestion = {
             question: question,
             questionId: lesson.questions.length + 1,
             options: options,
             correctAnswer: correctAnswer
         }
+        console.log('new question added: ', newQuestion)
         const newQuestionsArray = [...lesson.questions, newQuestion]
         await updateDoc(addQuestionTo, {questions: newQuestionsArray})
         setOptions([])
