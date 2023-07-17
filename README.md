@@ -10,12 +10,19 @@
     - [Edit/Delete a lesson (add/modify/delete questions)](https://github.com/ChandradithyaJ/chimplequiz/#edit-a-lesson-or-add-a-new-question)
 
 ## Getting Started
-Sign in with Gmail by clicking the sign in button.
+Sign in with Gmail by clicking the sign in button.  
+
+![Login with Gmail](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/getting-started.png)
 
 ## Take/Host/Join a Quiz
-**1. Select any of the lessons displayed to take a quiz.**
+**1. Select any of the lessons displayed to take a quiz.**  
+
+![List of lessons](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/select-lesson.png)
+
  - ### Host a quiz
-   - Share the game link with others so they can join!  
+   - Share the game link with others so they can join!
+  
+   ![Shareable game link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/host-quiz.png)
  
 **2. Join a multiplayer quiz by entering the game link that was shared with you.**
  - Confirm your participation
