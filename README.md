@@ -30,9 +30,15 @@ Sign in with Gmail by clicking the sign in button.
 
  - Confirm your participation
 
+![Confirmation button](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/confirmation.png)
+
 **3. Click on 'Start Quiz' in the waiting room to start your quiz!**  
 
+![Question display](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/question-display.png)
+
 **4. Select your answer and click on submit once it turns gold.**  
+
+![Selected options turns gold](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/verify-images.png)
 
 **5. Go to the next question by clicking the button underneath your current score.**  
 
