@@ -26,11 +26,17 @@ Sign in with Gmail by clicking the sign in button.
  
 **2. Join a multiplayer quiz by entering the game link that was shared with you.**  
 
-![Join a quiz by entering the game link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/join-quiz.png)
+![Join a quiz by entering the game link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/join-quiz.png)  
+
+![Enter Quiz Link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/enter-link.png)
 
  - Confirm your participation
 
-![Confirmation button](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/confirmation.png)
+![Confirmation button](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/confirmation.png)  
+
+ - If you entered the right link, but it shows an error, jsut refresh the page and try again.
+
+   ![Confirmation Failed](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/confirmation-failed.png)
 
 **3. Click on 'Start Quiz' in the waiting room to start your quiz!**  
 
@@ -59,18 +65,34 @@ Sign in with Gmail by clicking the sign in button.
 Click on the history button to view your results in past quizzes.  
 If you didn't take any quizzes, you can start right away!  
 
+![History Page](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/quiz-history.png)
+
 ## Quiz Editor
 *The quiz editor mode is for teachers and developers only!*  
 
 **You can add new questions to lessons, modify them, delete them, and even add whole new lessons!**  
  - ### Add a new lesson
    1. Click the 'add new lesson' button to start adding a new quiz for people to take.
+
+    ![Add New Lesson](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-new-lesson.png)
+
+    ![Enter Lesson Name](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-lesson.png)
+
    2. Create a question by filling in all the required fields. There are four options and the 'Correct Answer' field takes a number from 1 to 4, the option number of the correct answer.
+  
+  !Add Question
+
    3. Click on submit to create a new question.
-   4. If you're done creating questions, or need a break, you can always go back to the home page!
+
+  ![Add Question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-ques-2.png)
+   
+   5. If you're done creating questions, or need a break, you can always go back to the home page!
 
  - ### Edit a lesson (or add a new question)
    1. Click on the lesson you want to edit.
+  
+  ![List of lessons](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/select-lesson.png)
+
    2. You can either modify an existing question by clicking on the question, or create a new question by clicking on the 'Add new question' button.
    3. Add/Edit Question
       - If you're adding a new question, follow the same steps as described in the [**Add a new lesson**](https://github.com/ChandradithyaJ/chimplequiz#add-a-new-lesson) section.
