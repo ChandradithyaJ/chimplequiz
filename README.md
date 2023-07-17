@@ -80,13 +80,15 @@ If you didn't take any quizzes, you can start right away!
 
    2. Create a question by filling in all the required fields. There are four options and the 'Correct Answer' field takes a number from 1 to 4, the option number of the correct answer.
   
-  !Add Question
+  ![Add Question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-ques-1.png)
 
    3. Click on submit to create a new question.
 
   ![Add Question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-ques-2.png)
    
-   5. If you're done creating questions, or need a break, you can always go back to the home page!
+   4. If you're done creating questions, or need a break, you can always go back to the home page!
+
+      ![Finished Adding Questions](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/finish-add-ques.png)
 
  - ### Edit a lesson (or add a new question)
    1. Click on the lesson you want to edit.
