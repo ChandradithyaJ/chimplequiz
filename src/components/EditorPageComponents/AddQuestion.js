@@ -1,15 +1,37 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, correctAnswer, setCorrectAnswer}) => {
     const navigate = useNavigate()
 
+    const [option1, setOption1] = useState('')
+    const [option2, setOption2] = useState('')
+    const [option3, setOption3] = useState('')
+    const [option4, setOption4] = useState('')
+
     /* each entered option is an individual event and they all are updated
     into the options array */
-    const createOptions = (e) => {
-        const option = e.target.value
-        const optionsArray = [...options, option]
+    const createOption1 = (e) => {
+        setOption1(e.target.value)
+    }
+
+    const createOption2 = (e) => {
+        setOption2(e.target.value)
+    }
+
+    const createOption3 = (e) => {
+        setOption3(e.target.value)
+    }
+
+    const createOption4 = (e) => {
+        setOption4(e.target.value)
+    }
+
+    let optionsArray = []
+    const createOptions = () => {
+        optionsArray = [option1, option2, option3, option4]
         console.log('options array: ', optionsArray)
         setOptions(optionsArray)
     }
@@ -23,6 +45,7 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
     temporary states */
     const addNewQuestion = async (e) => {
         e.preventDefault()
+        createOptions()
         console.log('options: ', options)
         const addQuestionTo = doc(db, "lessons", lesson.routeName)
         const requiredDoc = await getDoc(addQuestionTo)
@@ -37,7 +60,7 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
         const newQuestion = {
             question: question,
             questionId: requiredDocData.questions.length + 1,
-            options: options,
+            options: optionsArray,
             correctAnswer: correctAnswerInt
         }
         console.log('new question added: ', newQuestion)
@@ -82,28 +105,28 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
                         id="option1"
                         type="text"
                         required
-                        onChange={(e) => createOptions(e)}
+                        onChange={(e) => createOption1(e)}
                     />
                     <label htmlFor="option2">Option 2: </label>
                     <input
                         id="option2"
                         type="text"
                         required
-                        onChange={(e) => createOptions(e)}
+                        onChange={(e) => createOption2(e)}
                     />
                     <label htmlFor="option3">Option 3: </label>
                     <input
                         id="option3"
                         type="text"
                         required
-                        onChange={(e) => createOptions(e)}
+                        onChange={(e) => createOption3(e)}
                     />
                     <label htmlFor="option4">Option 4: </label>
                     <input
                         id="option4"
                         type="text"
                         required
-                        onChange={(e) => createOptions(e)}
+                        onChange={(e) => createOption4(e)}
                     />
                     <label htmlFor="correct-ans">Correct Answer (Option number): </label>
                     <input
