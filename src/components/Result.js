@@ -25,8 +25,8 @@ const Result = ({ setScore, players, setPlayers, gameId }) => {
             const gameDoc = await getDoc(gameRef)
             const currentGame = gameDoc.data()
             playersList = currentGame.players
-            setPlayers(playersList)
             playersList.sort(sortInDescending)
+            setPlayers(playersList)
         } catch (err) {
             if (err.response) {
                 // Not in the 200 response range
@@ -49,6 +49,7 @@ const Result = ({ setScore, players, setPlayers, gameId }) => {
         onSnapshot(doc(db, "games", gameId), (doc) => {
             const updatedPlayersList = doc.data().players
             console.log(updatedPlayersList)
+            updatedPlayersList.sort(sortInDescending)
             setPlayers(updatedPlayersList)
         })
     }, [])
