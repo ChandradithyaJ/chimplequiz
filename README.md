@@ -1,6 +1,8 @@
 # Chimple Quizzes
 ***Multiplayer Quiz App for Chimple Learning!***  
 
+[**Click on this link to start learning now!**](https://chandradithyaj.github.io/chimplequiz)
+
 ## Quick Links  
   - [Getting Started](https://github.com/ChandradithyaJ/chimplequiz#getting-started)  
   - [Take/Host/Join a Quiz](https://github.com/ChandradithyaJ/chimplequiz#takehostjoin-a-quiz)
