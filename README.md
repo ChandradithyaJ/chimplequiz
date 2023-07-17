@@ -42,11 +42,18 @@ Sign in with Gmail by clicking the sign in button.
 
 **5. Go to the next question by clicking the button underneath your current score.**  
 
+![Go to next question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/check-answer.png)
+
 **6. After the final question, you can check your results!**
 - ### Single-player Results
   - In single player mode, your results are displayed and you can go back to the home page. You can always view your results in the history section.
+
+    ![Single Player Results](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/single-player-results.png)
+    
  - ### Multiplayer Leaderboard
    - If you're playing multiplayer, only the results of people who have finished the game are displayed. You can return to the home page. Your results can always be viewed in the history section.
+  
+     ![Multiplayer Player Results](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/multiplayer-results.png)
 
 ## View your History
 Click on the history button to view your results in past quizzes.  
