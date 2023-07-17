@@ -24,7 +24,10 @@ Sign in with Gmail by clicking the sign in button.
   
    ![Shareable game link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/host-quiz.png)
  
-**2. Join a multiplayer quiz by entering the game link that was shared with you.**
+**2. Join a multiplayer quiz by entering the game link that was shared with you.**  
+
+![Join a quiz by entering the game link](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/join-quiz.png)
+
  - Confirm your participation
 
 **3. Click on 'Start Quiz' in the waiting room to start your quiz!**  
