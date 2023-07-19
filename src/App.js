@@ -24,10 +24,13 @@ import './css/Question.css'
 import './css/Result.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { db, auth } from './config/firebase'
+import { db } from './config/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
 function App() {
+  // check if autheticated
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
   // user score
   const [score, setScore] = useState(0)
 
@@ -123,12 +126,13 @@ function App() {
 
       {/* allow access only after login */}
 
-      {!auth.currentUser &&
+      {!isAuthenticated &&
         <Routes>
           <Route
             exact path='/login'
             element={<LoginPage 
               setUsername={setUsername}
+              setIsAuthenticated={setIsAuthenticated}
             />}
           />
           <Route
@@ -137,13 +141,14 @@ function App() {
           />
         </Routes>
       }
-      {auth.currentUser && 
+      {isAuthenticated && 
         <Routes>
           <Route
             exact path='/home'
             element={<HomePage
               username={username}
               setUsername={setUsername}
+              setIsAuthenticated={setIsAuthenticated}
             />}
           />
           <Route

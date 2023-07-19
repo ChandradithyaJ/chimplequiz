@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { auth, googleProvider } from '../../config/firebase'
 import { signInWithPopup } from "firebase/auth"
 
-const Login = ({ setUsername }) => {
+const Login = ({ setUsername, setIsAuthenticated }) => {
     const navigate = useNavigate()
 
     // facilitate user sign in with gmail pop
@@ -10,9 +10,11 @@ const Login = ({ setUsername }) => {
         try{
             await signInWithPopup(auth, googleProvider)
             setUsername(auth.currentUser.displayName)
+            setIsAuthenticated(true)
+            console.log('authenticated')
             navigate('/home')
         } catch (err) {
-            console.log(err)
+            console.log(err.message)
         }
     }
 
