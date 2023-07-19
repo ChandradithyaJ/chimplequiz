@@ -234,7 +234,9 @@ function App() {
             exact path={`/editor/${lesson.routeName}`}
             element={<LessonEditor 
               lesson={lesson}
-              setLesson={setLesson}
+              setQuestion={setQuestion}
+              setOptions={setOptions}
+              setCorrectAnswer={setCorrectAnswer}
             />}
           />
           <Route 

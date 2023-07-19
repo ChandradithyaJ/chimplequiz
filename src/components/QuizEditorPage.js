@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import ListLessons from "./EditorPageComponents/ListLessons"
 
-const QuizEditorPage = (listOfLessons, setLesson) => {
+const QuizEditorPage = ({listOfLessons, setLesson}) => {
     const navigate = useNavigate()
 
     const addNewLesson = () => {
@@ -15,9 +15,9 @@ const QuizEditorPage = (listOfLessons, setLesson) => {
     return (
         <main className="editor-page">
             <h3>List of Lessons</h3>
-            {listOfLessons.listOfLessons.length ? (
+            {listOfLessons.length ? (
                 <ListLessons
-                    listOfLessons={listOfLessons.listOfLessons}
+                    listOfLessons={listOfLessons}
                     setLesson={setLesson}
                 />
             ) : (

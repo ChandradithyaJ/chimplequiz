@@ -44,7 +44,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .edit-lesson-name {
@@ -58,6 +59,78 @@
     padding-right: 3vw;
 }
 
+.edit-question-container {
+    background-image: linear-gradient(to bottom, #203A43 0%, #6796A9 100%);
+    color: whitesmoke;
+    margin-bottom: 2vh;
+    width: 40vw;
+}
+
+.edit-question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.5s;
+    color: whitesmoke;
+}
+
+.edit-question:hover {
+    box-shadow: 0 5px 15px #afe0f5;
+}
+
+.edit-question-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.add-new-question {
+    background-image: linear-gradient(to bottom, #c8fa87 0%, #5ad148 100%);
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-left: 2vw;
+}
+
+.add-new-question:hover {
+    color: black;
+    box-shadow: 0 5px 15px #afe0f5;
+}
+
+.delete-lesson {
+    background-image: linear-gradient(to bottom, #fa8787 0%, #d1485d 100%);
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-left: 2vw;
+}
+
+.delete-lesson:hover {
+    color: black;
+    box-shadow: 0 5px 15px #afe0f5;
+}
+
 .add-new-lesson {
     background-image: linear-gradient(to bottom, #87CEFA 0%, #48D1CC 100%);
     color: black;
@@ -68,7 +141,7 @@
     transition: 0.5s;
     cursor: pointer;
     margin-bottom: 8vh;
-    margin-top: 4vh
+    margin-top: 4vh;
 }
 
 .add-new-lesson:hover {
