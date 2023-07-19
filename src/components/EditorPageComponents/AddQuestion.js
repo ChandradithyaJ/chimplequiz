@@ -77,7 +77,7 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
         setOptions([])
         setQuestion('')
         setCorrectAnswer(null)
-        navigate('/home')
+        navigate('/editor')
     }
 
     return(
@@ -85,7 +85,7 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
             <div className="add-new-question-container">
                 <h2>Add New Question</h2>
                 <div className="return-home-from-editor" role="button" tabIndex="100" onClick={returnToHomePage}>
-                    Done adding questions? Return to the Home Page.
+                    Done adding questions? Return to the Editor Page.
                 </div>
                 <form 
                     className="add-question-form" 

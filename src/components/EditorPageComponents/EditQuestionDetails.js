@@ -41,24 +41,6 @@ const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestio
         setOptions(optionsArray)
     }
 
-    /*
-    useEffect(() => {
-        console.log(question)
-        console.log(options)
-        console.log(typeof(id))
-        console.log('editing question', requiredQuestion)
-        createOptions()
-        try{
-            if (requiredQuestion) {
-                setOptions(question.options)
-                setQuestion(question.question)
-                setCorrectAnswer(question.correctAnswer)
-            }
-        } catch (err) {
-            console.log(err.message)
-        }
-    }, []) */
-
 
     // update the question's fields
     const editQuestion = async (e) => {

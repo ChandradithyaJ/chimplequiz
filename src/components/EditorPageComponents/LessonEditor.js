@@ -7,6 +7,9 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
     const navigate = useNavigate()
 
     const addNewQuestion = () => {
+        setQuestion('')
+        setCorrectAnswer(null)
+        setOptions([])
         navigate(`/editor/${lesson.routeName}-add-questions`)
     }
 
@@ -17,8 +20,8 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
         navigate(`/editor`)
     }
 
-    const returnToHomePage = () => {
-        navigate('/home')
+    const returnToEditor = () => {
+        navigate('/editor')
     }
 
     return(
@@ -56,8 +59,8 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
                     Delete lesson
                 </div>
             </div>
-            <div className="return-home-from-editor" role="button" tabIndex="100" onClick={returnToHomePage}>
-                Go back to the Home Page
+            <div className="return-home-from-editor" role="button" tabIndex="100" onClick={returnToEditor}>
+                Go back to Editor Page
             </div>
         </main>
     )
