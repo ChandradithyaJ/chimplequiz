@@ -9,7 +9,7 @@
   - [View your History](https://github.com/ChandradithyaJ/chimplequiz/#view-your-history)
   - [Quiz Editor](https://github.com/ChandradithyaJ/chimplequiz/#quiz-editor)
     - [Add a new lesson](https://github.com/ChandradithyaJ/chimplequiz/#add-a-new-lesson)
-    - [Edit/Delete a lesson (add/modify/delete questions or change lesson names)](https://github.com/ChandradithyaJ/chimplequiz/#edit-a-lesson-or-add-a-new-question)
+    - [Edit/Delete a lesson (add/modify/delete questions or change lesson names)](https://github.com/ChandradithyaJ/chimplequiz/edit/main/README.md#edit-a-lesson-or-adddeletemodify-a-questionlesson-title))
 
 ## Getting Started
 Sign in with Gmail by clicking the sign in button.  
