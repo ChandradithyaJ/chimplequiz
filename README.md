@@ -9,7 +9,7 @@
   - [View your History](https://github.com/ChandradithyaJ/chimplequiz/#view-your-history)
   - [Quiz Editor](https://github.com/ChandradithyaJ/chimplequiz/#quiz-editor)
     - [Add a new lesson](https://github.com/ChandradithyaJ/chimplequiz/#add-a-new-lesson)
-    - [Edit/Delete a lesson (add/modify/delete questions)](https://github.com/ChandradithyaJ/chimplequiz/#edit-a-lesson-or-add-a-new-question)
+    - [Edit/Delete a lesson (add/modify/delete questions or change lesson names)](https://github.com/ChandradithyaJ/chimplequiz/#edit-a-lesson-or-add-a-new-question)
 
 ## Getting Started
 Sign in with Gmail by clicking the sign in button.  
@@ -92,15 +92,41 @@ If you didn't take any quizzes, you can start right away!
 
       ![Finished Adding Questions](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/finish-add-ques.png)
 
- - ### Edit a lesson (or add/delete/modify a question)
+ - ### Edit a lesson (or add/delete/modify a question/lesson title)
    1. Click on the lesson you want to edit.
   
   ![List of lessons](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/select-lesson.png)
 
    2. You can either modify an existing question, create a new question by clicking on the 'Add new question' button, delete a question, or modify the lesson name.
       
-   3. Add/Edit Question
+   3. Add/Edit/Delete Questions
+      
       - If you're adding a new question, follow the same steps as described in the [**Add a new lesson**](https://github.com/ChandradithyaJ/chimplequiz#add-a-new-lesson) section.
+
+        ![Add new question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/add-new-question.png)
+
       - If you're modifying a existing question, the process is the same as the above, but the question, options, and correct answer initially entered will be displayed for you to change.
      
-        
+        ![Editing a question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/edit-question-1.png)
+
+        ![Previous details are displayed](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/edit-question-2.png)
+
+        ![Submit button after editing](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/edit-question-3.png)
+
+      - To delete a question, click on the red 'x' mark next to the question in the lesson editor page.
+     
+        ![Delete a question](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/DeleteQuestion.png)
+
+
+  4. Change Lesson Title
+
+     - You can change the lesson title, and the process is similar to that of editing a question. The previous title is displayed, and you can modify it.
+
+       ![Edit Lesson Title](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/change-lesson-name.png)
+
+
+  5. Delete Lesson
+
+     - You can also an entire lesson.
+    
+       ![Delete Lesson](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/delete-lesson.png)
