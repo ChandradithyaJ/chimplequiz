@@ -8,6 +8,7 @@ import NewLesson from './components/EditorPageComponents/NewLesson'
 import AddQuestion from './components/EditorPageComponents/AddQuestion'
 import LessonEditor from './components/EditorPageComponents/LessonEditor'
 import EditQuestionDetails from './components/EditorPageComponents/EditQuestionDetails'
+import ChangeLessonTitle from './components/EditorPageComponents/ChangeLessonTitle'
 import HistoryPage from './components/HistoryPage'
 import WaitingRoom from './components/WaitingRoom'
 import JoinQuizConfirmation from './components/JoinQuizConfirmation'
@@ -239,6 +240,14 @@ function App() {
               setCorrectAnswer={setCorrectAnswer}
             />}
           />
+          <Route 
+            exact path={`/editor/${lesson.routeName}-change-lesson-title`}
+            element={<ChangeLessonTitle 
+              lesson={lesson}
+              lessonName={lessonName}
+              setLessonName={setLessonName}
+            />}
+          /> 
           <Route 
             exact path={`/editor/${lesson.routeName}/:id`}
             element={<EditQuestionDetails 

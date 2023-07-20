@@ -8,7 +8,7 @@ const NewLesson = ({ listOfLessons, setListOfLessons, lesson, setLesson, lessonN
     // generate a route name from the display name entered
     const getRouteName = (displayName) => {
         const replacementCharacter = "_";
-        const charactersToBeReplaced = ['\'', '.', ',', '#', '/', '\\']
+        const charactersToBeReplaced = ['\'', '.', ',', '#', '/', '\\', ' ']
         for(let i = 0; i < displayName.length; i++){
             if(charactersToBeReplaced.includes(displayName[i])){
                 displayName[i] = replacementCharacter

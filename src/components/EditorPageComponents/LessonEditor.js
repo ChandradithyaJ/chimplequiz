@@ -6,6 +6,10 @@ import ListQuestions from './ListQuestions'
 const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => {
     const navigate = useNavigate()
 
+    const changeLessonTitle = () => {
+        navigate(`/editor/${lesson.routeName}-change-lesson-title`)
+    }
+
     const addNewQuestion = () => {
         setQuestion('')
         setCorrectAnswer(null)
@@ -26,6 +30,15 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
 
     return(
         <main className="editor-page">
+            <h3>{lesson.displayName}</h3>
+            <div
+                className="change-lesson-title"
+                role="button"
+                tabIndex="98"
+                onClick={changeLessonTitle}
+            >
+                Change Lesson Name
+            </div>
             <h3>Questions</h3>
             {lesson.questions.length ? (
                 <ListQuestions

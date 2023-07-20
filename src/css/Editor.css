@@ -13,6 +13,23 @@
     color: rgb(168, 153, 240);
 }
 
+.change-lesson-title {
+    background-image: linear-gradient(to bottom, #f0fa87 0%, #d1c848 100%);
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: 4vh;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-left: 2vw;
+}
+
+.change-lesson-title:hover {
+    color: black;
+    box-shadow: 0 5px 15px #afe0f5;
+}
+
 .edit-lesson-container {
     background-image: linear-gradient(to bottom, #203A43 0%, #6796A9 100%);
     color: whitesmoke;
@@ -59,11 +76,21 @@
     padding-right: 3vw;
 }
 
+.edit-question-container-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 2vh;
+}
+
 .edit-question-container {
     background-image: linear-gradient(to bottom, #203A43 0%, #6796A9 100%);
     color: whitesmoke;
-    margin-bottom: 2vh;
     width: 40vw;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .edit-question {
@@ -86,6 +113,19 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+
+.delete-icon-container {
+    background-color: rgb(241, 90, 90);
+    transition: 0.5s;
+    cursor: pointer;
+    height: var(--height);
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon-container:hover {
+    box-shadow: 0 5px 15px #afe0f5;
 }
 
 .edit-buttons {
