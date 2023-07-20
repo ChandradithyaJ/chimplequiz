@@ -92,12 +92,15 @@ If you didn't take any quizzes, you can start right away!
 
       ![Finished Adding Questions](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/finish-add-ques.png)
 
- - ### Edit a lesson (or add a new question)
+ - ### Edit a lesson (or add/delete/modify a question)
    1. Click on the lesson you want to edit.
   
   ![List of lessons](https://github.com/ChandradithyaJ/chimplequiz/blob/main/src/images/select-lesson.png)
 
-   2. You can either modify an existing question by clicking on the question, or create a new question by clicking on the 'Add new question' button.
+   2. You can either modify an existing question, create a new question by clicking on the 'Add new question' button, delete a question, or modify the lesson name.
+      
    3. Add/Edit Question
       - If you're adding a new question, follow the same steps as described in the [**Add a new lesson**](https://github.com/ChandradithyaJ/chimplequiz#add-a-new-lesson) section.
       - If you're modifying a existing question, the process is the same as the above, but the question, options, and correct answer initially entered will be displayed for you to change.
+     
+        
