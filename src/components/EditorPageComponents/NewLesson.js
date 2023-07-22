@@ -26,9 +26,14 @@ const NewLesson = ({ listOfLessons, setListOfLessons, lesson, setLesson, lessonN
             lessonId: listOfLessons.length + 1,
             questions: []
         }
+
         console.log('new lesson added', newLesson)
+
+        // update in database
         await setDoc(doc(db, "lessons", newLesson.routeName), newLesson)
         setLesson(newLesson)
+
+        // update locally
         const updatedListOfLessons = [...listOfLessons, newLesson]
         setListOfLessons(updatedListOfLessons)
     }

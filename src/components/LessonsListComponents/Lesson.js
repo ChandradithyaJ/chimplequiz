@@ -31,7 +31,7 @@ const Lesson = ({ lesson, setLesson, setGameId }) => {
                         {lesson.displayName}
                     </p>
                     <p className="question-count">
-                        {`(${lesson.questions.length} questions)`}
+                        {`(${lesson.questions.length} question(s))`}
                     </p>
                 </div>
             </Link>

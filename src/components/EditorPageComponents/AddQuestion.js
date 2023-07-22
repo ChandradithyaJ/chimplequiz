@@ -3,7 +3,7 @@ import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, correctAnswer, setCorrectAnswer}) => {
+const AddQuestion = ({ lesson, listOfLessons, setListOfLessons, question, setQuestion, options, setOptions, correctAnswer, setCorrectAnswer}) => {
     const navigate = useNavigate()
 
     const [option1, setOption1] = useState('')
@@ -63,10 +63,24 @@ const AddQuestion = ({ lesson, question, setQuestion, options, setOptions, corre
             options: optionsArray,
             correctAnswer: correctAnswerInt
         }
+
         console.log('new question added: ', newQuestion)
+        // update in database
         const newQuestionsArray = [...requiredDocData.questions, newQuestion]
-        console.log(newQuestionsArray)
+        console.log('newQuestionsArray: ' ,newQuestionsArray)
         await updateDoc(addQuestionTo, {questions: newQuestionsArray})
+
+        // update locally
+        const updatedListOfLessons = listOfLessons
+        for(const subject of updatedListOfLessons){
+            if(subject.lessonId === lesson.lessonId){
+                subject.questions = newQuestionsArray
+                break
+            }
+        }
+        setListOfLessons(updatedListOfLessons)
+        console.log('updated list of lessons: ', updatedListOfLessons)
+
         setOptions([])
         setQuestion('')
         setCorrectAnswer(null)

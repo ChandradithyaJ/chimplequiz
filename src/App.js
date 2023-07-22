@@ -223,6 +223,8 @@ function App() {
             exact path={`/editor/${lesson.routeName}-add-questions`}
             element={<AddQuestion 
               lesson={lesson}
+              listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
               question={question}
               setQuestion={setQuestion}
               options={options}
@@ -235,6 +237,8 @@ function App() {
             exact path={`/editor/${lesson.routeName}`}
             element={<LessonEditor 
               lesson={lesson}
+              listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
               setQuestion={setQuestion}
               setOptions={setOptions}
               setCorrectAnswer={setCorrectAnswer}
@@ -244,6 +248,8 @@ function App() {
             exact path={`/editor/${lesson.routeName}-change-lesson-title`}
             element={<ChangeLessonTitle 
               lesson={lesson}
+              listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
               lessonName={lessonName}
               setLessonName={setLessonName}
             />}
@@ -252,6 +258,8 @@ function App() {
             exact path={`/editor/${lesson.routeName}/:id`}
             element={<EditQuestionDetails 
               lesson={lesson}
+              listOfLessons={listOfLessons}
+              setListOfLessons={setListOfLessons}
               options={options}
               setOptions={setOptions}
               question={question}

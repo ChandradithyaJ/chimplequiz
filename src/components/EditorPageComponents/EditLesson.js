@@ -32,7 +32,7 @@ const EditLesson = ({ lesson, setLesson }) => {
                         {lesson.displayName}
                     </p>
                     <p className="edit-question-count">
-                    {`(${lesson.questions.length} questions)`}
+                    {`(${lesson.questions.length} question(s))`}
                     </p>
                 </div>
             </Link>

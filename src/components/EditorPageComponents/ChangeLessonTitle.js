@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
 
-const ChangeLessonTitle = ({ lesson, lessonName, setLessonName }) => {
+const ChangeLessonTitle = ({ lesson, listOfLessons, setListOfLessons, lessonName, setLessonName }) => {
     const navigate = useNavigate()
 
     const returnToLessonEditor = () => {
@@ -11,28 +11,48 @@ const ChangeLessonTitle = ({ lesson, lessonName, setLessonName }) => {
 
     // generate a route name from the display name entered
     const getRouteName = (displayName) => {
+        const newRouteName = displayName
         const replacementCharacter = "_";
         const charactersToBeReplaced = ['\'', '.', ',', '#', '/', '\\', ' ']
-        for (let i = 0; i < displayName.length; i++) {
-            if (charactersToBeReplaced.includes(displayName[i])) {
-                displayName[i] = replacementCharacter
+
+        try{
+            for (let i = 0; i < newRouteName.length; i++) {
+                if (charactersToBeReplaced.includes(newRouteName[i])) {
+                    newRouteName[i] = replacementCharacter
+                }
             }
+        } catch (err) {
+            console.log(err.message)
         }
-        console.log(displayName)
-        return displayName
+
+        console.log(newRouteName)
+        return newRouteName
     }
 
     const updateLessonTitle = async (e) => {
         e.preventDefault()
         const updatedTitle = lessonName
         const updatedRouteName = getRouteName(updatedTitle)
-        
         console.log(updatedTitle, updatedRouteName)
+
+        // update in database
         const updatedLesson = doc(db, "lessons", lesson.id)
         await updateDoc(updatedLesson, {
             displayName: updatedTitle,
             routeName: updatedRouteName 
         })
+
+        // update locally
+        const updatedListOfLessons = listOfLessons.map((subject) => {
+            if(subject.lessonId === lesson.lessonId){
+                subject.displayName = updatedTitle
+                subject.routeName = updatedRouteName
+            }
+            return subject
+        })
+        setListOfLessons(updatedListOfLessons)
+
+        console.log('updated list of lessons: ', updatedListOfLessons)
         console.log('updated title')
         navigate(`/editor/${lesson.routeName}`)
     }

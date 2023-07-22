@@ -1,15 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../../config/firebase"
 
-const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestion, correctAnswer, setCorrectAnswer }) => {
+const EditQuestionDetails = ({ lesson, listOfLessons, setListOfLessons, options, setOptions, question, setQuestion, correctAnswer, setCorrectAnswer }) => {
     const navigate = useNavigate()
 
     /* retrieve the questionId from the route and use it to find the required
     question */
     const { id } = useParams()
-    const requiredQuestion = lesson.questions.find(question => question.questionId === id)
 
     const [option1, setOption1] = useState(options[0])
     const [option2, setOption2] = useState(options[1])
@@ -47,8 +46,9 @@ const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestio
         e.preventDefault()
         createOptions()
         const lessonToEdit = doc(db, "lessons", lesson.id)
-        const allQuestions = lesson.questions
-        for(const q of allQuestions){
+        const updatedListOfLessons = listOfLessons
+        const updatedQuestionsArray = lesson.questions
+        for(const q of updatedQuestionsArray){
             if(q.questionId === Number(id)){
                 console.log(q)
                 q.question = question
@@ -57,9 +57,21 @@ const EditQuestionDetails = ({ lesson, options, setOptions, question, setQuestio
                 break
             }
         }
-        const updatedQuestionsArray = allQuestions
         console.log('updated array: ', updatedQuestionsArray)
+
+        // update in database
         await updateDoc(lessonToEdit, {questions: updatedQuestionsArray})
+
+        // update locally
+        for(const subject of updatedListOfLessons){
+            if(subject.lessonId === lesson.lessonId){
+                subject.questions = updatedQuestionsArray
+                break
+            }
+        }
+        setListOfLessons(updatedListOfLessons)
+        console.log('updated list of lessons: ', updatedListOfLessons)
+
         navigate(`/editor/${lesson.routeName}`)
     }
 

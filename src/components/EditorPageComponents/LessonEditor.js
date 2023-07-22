@@ -3,7 +3,7 @@ import { doc, deleteDoc } from "firebase/firestore"
 import { db } from "../../config/firebase"
 import ListQuestions from './ListQuestions'
 
-const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => {
+const LessonEditor = ({ lesson, listOfLessons, setListOfLessons, setQuestion, setOptions, setCorrectAnswer }) => {
     const navigate = useNavigate()
 
     const changeLessonTitle = () => {
@@ -17,9 +17,15 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
         navigate(`/editor/${lesson.routeName}-add-questions`)
     }
 
-    // delete the lesson from firestore
     const deleteLesson = async () => {
+        // delete from firestore
         await deleteDoc(doc(db, "lessons", lesson.id))
+
+        // delete locally
+        const updatedListOfLessons = listOfLessons
+        setListOfLessons(updatedListOfLessons.filter(subject => subject !== lesson))
+
+        console.log('updated list of lessons', updatedListOfLessons)
         console.log(`${lesson.displayName} deleted`)
         navigate(`/editor`)
     }
@@ -47,6 +53,8 @@ const LessonEditor = ({ lesson, setQuestion, setOptions, setCorrectAnswer }) => 
                     setOptions={setOptions}
                     setCorrectAnswer={setCorrectAnswer}
                     lesson={lesson}
+                    listOfLessons={listOfLessons}
+                    setListOfLessons={setListOfLessons}
                 />
             ) : (
                 <p style={{ marginTop: "2rem" }}>

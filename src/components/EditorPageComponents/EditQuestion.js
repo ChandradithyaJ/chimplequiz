@@ -3,7 +3,7 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../../config/firebase"
 
-const EditQuestion = ({ question, setQuestion, setOptions, setCorrectAnswer, lesson }) => {
+const EditQuestion = ({ question, setQuestion, setOptions, setCorrectAnswer, lesson, listOfLessons, setListOfLessons }) => {
     const navigate = useNavigate()
 
     const goToQuestion = () => {
@@ -18,11 +18,24 @@ const EditQuestion = ({ question, setQuestion, setOptions, setCorrectAnswer, les
     }
 
     const deleteQuestion = async () => {
+        console.log('question: ', question)
         const newQuestionsArray = lesson.questions.splice(lesson.questions.indexOf(question), 1)
         console.log('newQuestionsArray: ', newQuestionsArray)
+
+        // delete from database
         await updateDoc(doc(db, 'lessons', lesson.id), {
             questions: newQuestionsArray
         })
+
+        // delete locally
+        const updatedListOfLessons = listOfLessons.map((subject) => {
+            if (subject.lessonId === lesson.lessonId) {
+                subject.questions = newQuestionsArray
+            }
+            return subject
+        })
+        setListOfLessons(updatedListOfLessons)
+
         console.log('question deleted')
         navigate('/editor')
     }
